@@ -1,2 +1,2 @@
 #!/bin/bash
-echo Kali
+lsb_release -si
