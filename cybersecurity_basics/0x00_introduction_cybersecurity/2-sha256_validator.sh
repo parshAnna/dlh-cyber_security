@@ -1,2 +1,10 @@
 #!/bin/bash
-[ "$(sha256sum "$1" | cut -d" " -f1)" = "$2" ] && echo ok || echo invalid # sha256sum -c
+
+HASH=$(sha256sum "$1" | awk '{print $1}')
+
+if [ "$HASH" = "$2" ]
+then
+	echo ok
+else
+	echo invalid
+fi
