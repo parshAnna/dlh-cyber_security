@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
-getenforce
+#!/bin/bash
+sestatus
