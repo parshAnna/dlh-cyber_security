@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-find "$1" -user user2 -exec chown user3 {} \;
+find "$1" -type f -user user2 -exec chown user3 {} \;
