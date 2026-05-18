@@ -1,3 +1,2 @@
 #!/bin/bash
-echo "Password123" > 4-password.txt
-echo "helloworld"
+john --wordlist=/usr/share/wordlists/rockyou.txt "$1" && john --show "$1" | cut -d: -f2 > 4-password.txt
