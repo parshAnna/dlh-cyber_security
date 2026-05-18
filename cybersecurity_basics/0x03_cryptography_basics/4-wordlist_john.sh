@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "Password123\nhelloworld\n" > 4-password.txt
+printf "Password123\nhelloworld\nherro\n" > 4-password.txt
