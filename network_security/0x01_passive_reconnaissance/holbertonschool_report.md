@@ -3,43 +3,48 @@
 ## Target
 Domain: holbertonschool.com
 
-## Passive reconnaissance source
-This report is based on passive reconnaissance using Shodan-style exposed-service research, DNS records, subdomains, and public IP information.
+## Methodology
+I used passive reconnaissance with DNS lookups and Shodan host lookups. No exploitation, scanning attack, or direct system access was performed.
 
-## IP ranges and exposed IPs
-The domain and its subdomains resolve to several public cloud/CDN IP addresses, including:
-- 75.2.70.75
-- 99.83.190.102
-- 63.35.51.142
-- 52.85.96.82
-- 52.85.96.95
-- 13.36.10.99
-- 13.37.98.87
-- 13.38.122.220
-- 18.66.196.8
-- 34.203.198.145
-- 44.214.9.111
-- 54.157.56.129
-- 54.86.136.129
-- 54.89.246.137
-- 104.16.53.111
-- 151.139.128.10
-- 192.0.78.131
+## Shodan findings
 
-## Technologies and services observed
-- AWS Route 53 for DNS hosting
-- AWS CloudFront / AWS-hosted infrastructure
-- Google Workspace mail servers
-- Cloudflare CDN on some services
-- Webflow subdomains
-- WordPress-related hosting
-- Discourse-related staging subdomain
-- Mailgun SPF configuration
-- Stripe domain verification
-- Dropbox domain verification
-- Zapier domain verification
-- Brevo domain verification
-- Notion domain verification
+### 75.2.70.75
+Organization: Amazon.com, Inc.
+Hostname: aacb0a264e514dd48.awsglobalaccelerator.com
+Open ports: 80/tcp, 443/tcp
+Technology: AWS Global Accelerator, nginx, HTTPS
 
-## Notes
-The infrastructure appears to rely heavily on cloud providers and CDN services. Several subdomains point to AWS-hosted services, while TXT records reveal third-party SaaS integrations used by the organization.
+### 99.83.190.102
+Organization: Amazon.com, Inc.
+Hostname: aacb0a264e514dd48.awsglobalaccelerator.com
+Open ports: 80/tcp, 443/tcp
+Technology: AWS Global Accelerator, nginx, HTTPS
+
+### 192.0.78.131
+Organization: Automattic, Inc.
+Open ports: 80/tcp, 443/tcp
+Technology: nginx, HTTPS, WordPress/Automattic shared infrastructure
+Certificate issuer: Google Trust Services
+
+### 198.202.211.1
+Organization: Webflow, Inc.
+Open ports: 80, 443, 2052, 2053, 2082, 2083, 2086, 2087, 2095, 6443, 8080, 8443, 8880
+Technology: Webflow infrastructure, HTTPS, Google Trust Services certificate
+
+### 104.16.53.111
+Organization: Cloudflare, Inc.
+Open ports: 80, 443, 2052, 2053, 2082, 2083, 2086, 2087, 2095, 6443, 8080, 8443, 8880
+Technology: Cloudflare CDN and reverse proxy services
+
+### 34.203.198.145
+Shodan result: Access denied / 403 Forbidden
+No detailed service information was available.
+
+## Technologies identified
+AWS Global Accelerator, Amazon AWS, Cloudflare, Webflow, Automattic, WordPress, nginx, HTTPS/TLS, Google Trust Services, Google Workspace, Mailgun, Stripe, Dropbox, Zapier, Brevo, and Notion verification records.
+
+## Security observations
+The domain uses several third-party cloud and SaaS providers. Some IP addresses are shared infrastructure, so unrelated hostnames may appear in Shodan results. The exposed services are mainly web-facing services such as 80/tcp and 443/tcp.
+
+## Conclusion
+holbertonschool.com appears to use distributed cloud infrastructure with AWS, Cloudflare, Webflow, and Automattic. The public exposure is mostly CDN-based and web-facing.
