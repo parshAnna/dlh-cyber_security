@@ -1,2 +1,6 @@
 #!/bin/bash
-nmap -sn "$1"
+if [ "$(id -u)" -eq 0 ]; then
+    nmap -sn -PR "$1"
+else
+    sudo nmap -sn -PR "$1"
+fi
