@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-import socket, requests
+import socket
+import requests
 from bs4 import BeautifulSoup
-try: import dns.resolver
-except Exception: dns = None
+try:
+    import dns.resolver
+except ImportError:
+    dns = None
 
 def dns_recon(domain):
     try: print(f"IP Address: {socket.gethostbyname(domain)}")
