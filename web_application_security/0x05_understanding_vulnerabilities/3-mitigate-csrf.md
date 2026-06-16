@@ -1,77 +1,83 @@
-# Mitigate CSRF: Preventing Unwanted Actions Through Trusted Sessions
+# Stop CSRF: Preventing Unwanted Actions Through Trusted Sessions
 
 By Parshana Danesh
 
-Cross-Site Request Forgery, or CSRF, is a web security vulnerability where an attacker tricks an authenticated user into performing an action they did not intend to do. The dangerous part is that the request comes from the victim’s browser, so the vulnerable application may think it is legitimate.
+Cross-Site Request Forgery or CSRF is a problem for websites. It is when someone tricks a user into doing something they do not want to do. The bad part is that the request looks like it comes from the users browser so the website thinks it is okay.
 
-A simple example is a user logged in to a banking website. If that user visits a malicious page in another tab, the malicious page may try to send a request to the banking site. If the banking site relies only on the user’s session cookie, the browser may automatically include that cookie. Without protection, the application may accept the request as if the user intentionally made it.
+Let me give you an example. Imagine a user is logged in to their banking website. If they visit a website in another tab that bad website might try to send a request to the banking site. If the banking site only looks at the users session cookie the browser might automatically send that cookie. Without protection the website might think the user really meant to do that.
 
 ## What Is CSRF?
 
-CSRF happens when a website trusts a request only because it comes with a valid session cookie. The attacker does not need to know the user’s password. Instead, the attacker abuses the fact that the user is already authenticated.
+CSRF happens when a website trusts a request just because it has a session cookie. The bad guy does not need to know the users password. They just use the fact that the user is already logged in.
 
-This attack is basically the web security version of someone using your hand to sign something you never agreed to.
+This is like someone using your hand to sign a paper you do not want to sign.
 
-CSRF usually targets state-changing actions. These are actions that modify something, such as changing an email address, updating a password, transferring money, deleting data, or changing account settings.
+CSRF usually goes after actions that change something like changing an email address updating a password sending money deleting data or changing account settings.
 
-This makes CSRF different from attacks like XSS. In XSS, the attacker injects script into a page. In CSRF, the attacker tricks the browser into sending a request that the user did not intend to send.
+This makes CSRF different from kinds of attacks like XSS. In XSS the bad guy puts code into a webpage. In CSRF the bad guy tricks the browser into sending a request the user did not mean to send.
 
-## Historical Context
+## How Did This Happen?
 
-CSRF became more important as web applications started relying heavily on cookies and authenticated sessions. Early websites often trusted requests if the session cookie was valid. That created a problem because browsers automatically attach cookies to requests.
+CSRF became a problem as websites started using cookies and logged-in sessions more. Old websites often trusted requests if they had a session cookie. That was a problem because browsers automatically add cookies to requests.
 
-As web applications became more interactive, attackers found ways to abuse this behavior. Over time, frameworks and security standards started adding built-in CSRF protection, such as anti-CSRF tokens and better cookie controls.
+As websites got more interactive bad guys found ways to abuse this. Over time website builders and security experts started adding protection against CSRF like tokens and better cookie controls.
 
-Today, CSRF is a known web application risk, but it still appears when developers forget to protect sensitive actions or rely only on cookies for authentication.
+Today CSRF is a problem but it still happens when developers forget to protect important actions or only use cookies to check who is logged in.
 
-## Impact of CSRF Attacks
+## What Happens If CSRF Attacks Succeed?
 
-The impact of a CSRF attack depends on what the authenticated user is allowed to do. If the victim is a normal user, the attacker may change account details, submit forms, make purchases, or modify personal data.
+The impact of a CSRF attack depends on what the user's allowed to do. If the victim is an user the bad guy might change account details submit forms make purchases or change personal data.
 
-If the victim is an administrator, the impact can be much worse. A successful CSRF attack against an admin account may allow attackers to change application settings, create users, delete content, or compromise the whole system.
+If the victim is an administrator the impact can be much worse. A successful CSRF attack on an account might let the bad guy change website settings create new users, delete content or take over the whole system.
 
-For technology companies, CSRF can lead to unauthorized actions, data changes, account compromise, loss of trust, and possible legal issues. Even if the attacker does not directly steal a password, they can still abuse the user’s authenticated session.
+For technology companies CSRF can lead to actions, data changes, account problems, loss of trust and legal issues. Even if the bad guy does not steal a password they can still abuse the users logged-in session.
 
-## Mitigation Strategies
+## How To Stop CSRF
 
-The most common defense against CSRF is using anti-CSRF tokens. A CSRF token is a secret, unpredictable value generated by the server. The application includes the token in forms or requests, and the server checks it before accepting the action.
+The common way to stop CSRF is to use special tokens. A CSRF token is a code made by the website. The website includes the token in forms or requests. Checks it before doing anything.
 
-If an attacker creates a forged request from another site, they usually cannot know the correct token. This helps the server reject the request.
+If a bad guy tries to fake a request from another site they usually cannot know the correct token. This helps the website reject the request.
 
-Another important defense is validating the origin of requests. Applications can check headers such as Origin or Referer to confirm that sensitive requests are coming from trusted pages.
+Another important way to stop CSRF is to check where requests come from. Websites can check headers like Origin or Referer to make sure sensitive requests come from trusted pages.
 
-SameSite cookies also help reduce CSRF risk. A SameSite cookie can limit when browsers send cookies in cross-site requests. This makes it harder for another website to abuse the user’s authenticated session.
+Websites can also use cookies that limit when browsers send them in cross-site requests. This makes it harder for another website to abuse the users logged-in session.
 
-Secure cookie attributes are also important. Cookies should use HttpOnly, Secure, and SameSite where appropriate. HttpOnly helps protect cookies from client-side script access. Secure ensures cookies are sent over HTTPS. SameSite helps control cross-site behavior.
+Websites should also make sure cookies are secure. Cookies should only be accessible by the website. Should only be sent over secure connections.
 
-Applications should also avoid using GET requests for state-changing actions. GET should be used for reading data, not for changing passwords, deleting records, or submitting important actions.
+Websites should not use GET requests for actions that change something. GET should only be used for reading data not for changing passwords or submitting actions.
 
-For very sensitive operations, re-authentication or multi-factor confirmation can add extra protection. For example, changing a password or transferring money should require stronger confirmation than just a valid session cookie.
+For sensitive actions websites should require extra confirmation, like re-entering a password or using two-factor authentication.
 
 ## Best Practices
 
-To reduce CSRF risk, developers should use built-in CSRF protection from their web framework whenever possible. Custom security logic can easily contain mistakes.
+To reduce CSRF risk developers should use built-in protection from their website builder whenever possible. Custom security code can easily have mistakes.
 
-They should also apply CSRF protection to all state-changing requests, not only login forms. Important actions such as profile updates, payment actions, password changes, and admin operations must be protected.
+They should also protect all actions that change something not login forms. Important actions like profile updates, payment actions, password changes and admin operations must be protected.
 
-Security testing is also useful. Tools like Burp Suite and OWASP ZAP can help test whether forms and requests are protected against CSRF. Code review can also help developers confirm that sensitive actions require valid tokens and proper request validation.
+Security testing is also important. Tools like Burp Suite and OWASP ZAP can help test whether forms and requests are protected against CSRF. Code review can also help developers make sure sensitive actions require tokens and proper request validation.
 
-## Conclusion
+##
 
-CSRF is dangerous because it abuses trust between the user’s browser and a web application. The user may be authenticated, but that does not always mean the user intended to make the request.
+CSRF is a problem because it abuses the trust between the users browser and a website. The user might be logged in. That does not always mean they meant to do something.
 
-The best defenses include anti-CSRF tokens, request origin validation, SameSite cookies, secure cookie attributes, avoiding state-changing GET requests, and extra confirmation for sensitive actions.
+The best ways to stop CSRF include tokens checking where requests come from, special cookies, secure cookies avoiding actions that change something with GET requests and extra confirmation, for sensitive actions.
 
-CSRF mitigation should be part of secure web development. Protecting authenticated actions helps preserve the security and integrity of web applications.
+Stopping CSRF should be part of making websites secure. Protecting logged-in actions helps keep websites safe and secure.
 
-Next, I will focus on patches and patch management, explaining how organizations fix known vulnerabilities and reduce long-term security risk.
+Next I will talk about patches and patch management. Explain how organizations fix known problems and reduce long-term security risk.
 
 ## References
 
 * Digital Learning Hub: Understanding Vulnerabilities concept material
+
 * OWASP Cross-Site Request Forgery documentation
+
 * OWASP Cross-Site Request Forgery Prevention Cheat Sheet
+
 * OWASP Authentication Cheat Sheet
+
 * web.dev Safe and Secure documentation
+
 * Burp Suite documentation
+
 * OWASP ZAP documentation
