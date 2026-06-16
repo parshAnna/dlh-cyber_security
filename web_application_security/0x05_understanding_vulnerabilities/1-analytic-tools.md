@@ -47,6 +47,7 @@ Static analysis is good because it finds problems early. It can be integrated in
 Dynamic analysis is good because it tests the real behavior of a running application. It can reveal issues caused by configuration, authentication, session handling, or environment-specific behavior. However, it may not cover every part of the code, especially if some paths are hard to reach during testing.
 
 This is why both methods are important. Static analysis helps find weaknesses early in the code. Dynamic analysis helps confirm how the application behaves in practice.
+If software could talk, static analysis would read its diary, and dynamic analysis would watch what it actually does in real life
 
 ## Impact on Software Security
 
