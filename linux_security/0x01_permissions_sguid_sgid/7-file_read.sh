@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
-cat /etc/passwd
+#!/bin/bash
+find "$1" -type f -exec chmod o=r {} \;
