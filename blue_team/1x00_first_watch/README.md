@@ -26,6 +26,8 @@ This project analyzes the supplied MedDefense Health Systems documentation to de
 
 - [Task 10 — Complete Control Matrix](10-complete_control_matrix.md): consolidated control effectiveness, category/function averages and coverage of the five most critical assets.
 
+- [Task 11 — Shadow Systems](11-shadow_systems.md): assessments and migration/decommissioning decisions for three reported systems, with registry additions and a governance policy recommendation.
+
 - [Task 12 — Prioritized Gap Analysis](12-gap_analysis.md): 14 source-linked gaps and distribution summaries; data classifications are provisional pending separate Task 9/11 evidence.
 
 - [Task 14 — Risk Treatment Decisions](14-risk_decisions.md): seven prioritized mitigation packages, $110,000 in planning allowances and a $10,000 contingency; Task 13 updates remain unavailable.
@@ -56,8 +58,12 @@ Task 16 consolidates prior deliverables, computes asset/control totals from thei
 
 ## Repository placement
 
-Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14 and 16 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 provides a proposed MRI strategy; its measures are not represented as deployed controls. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
+Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14 and 16 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 provides a proposed MRI strategy; its measures are not represented as deployed controls. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
 
 ## Source update — Task 9
 
 Task 9 now provides the dedicated data map and confirms organization-wide PHI for over 50,000 patients. Earlier reports preserve their original evidence cutoffs; statements that a separate data map was unavailable describe their preparation stage. Their provisional billing and safety-critical reference-data classifications should be reconciled with Task 9 before a revised consolidated assessment is issued; this update does not silently change risk scores or deployed controls.
+
+## Source update — Task 11
+
+Task 11 adds three reported shadow systems to Task 7, bringing the record count to 126 with possible unresolved identity overlap. Earlier reports using 123 records or stating Task 11 was unavailable preserve their original evidence cutoffs and require reconciliation before reissue. No proposed migration/decommissioning has been performed.

@@ -149,6 +149,10 @@ Scope: Consolidation of supplied artifacts; no new scan or live-system inspectio
 
 | A-123 | Billing web application | Application | Central, billing-srv-01 | Unknown; Finance / IT proposed | Apache 2.4.29 reported by Marcus in D; package/build not verified | Billing and insurance-claim processing | 10.10.2.15:80; local MySQL at port 3306 | Active | O D2; I A; D shows apache2 process/listener and Finance-reported slowdown; version-specific vulnerability and initial-access claims need validation; logical application on A-039, not an extra server |
 
+| A-124 | Dr. Patel personal NAS | Data Store | Central, Cardiology office | Dr. Patel / Cardiology, reported user; formal IT owner absent | Personal NAS; vendor/OS unknown | Reported research-file storage; clinical dependence unverified | Office wall connection; IP/VLAN unknown | Shadow IT | T11; contents/classification pending; migrate after verified secure destination and data validation; do not equate with NAS-01 or either unknown scan host. |
+| A-125 | Marketing personal-account Google Drive | Application | External cloud; data region unknown | Marketing; personal Gmail account owner unspecified | Google Drive linked to personal Gmail | Media collaboration and press communications | Internet/cloud; no internal IP established | Shadow IT | T11; validate sharing, ownership and data sensitivity; migrate to organization-owned workspace with verified access and recovery. |
+| A-126 | Former intern Raspberry Pi monitor | Endpoint | Central, second floor; exact placement unknown | IT/security purpose alleged; current custodian absent | Raspberry Pi; OS/services unknown | Alleged network monitoring; effectiveness/dependencies unverified | Internal connection; IP/VLAN unknown | Shadow IT | T11; preserve evidence and validate dependencies before decommissioning; identity may overlap an unknown scan record, but no match is confirmed. |
+
 ## Aggregate and unresolved identity coverage
 
 These categories are preserved without fabricating device identities or double-counting named hosts. They require a full inventory export before per-device registration is possible.
@@ -219,3 +223,7 @@ These categories are preserved without fabricating device identities or double-c
 ### 4. Validation actions
 
 Validate MRI vendor certification and controller identification; request full scan output with timestamps, masks and omitted identities; reconcile IT, biomedical and HR asset records; establish owners and approved service dependencies; identify the two undocumented devices through authorized inventory and configuration records. Confirm current states, formal owners and source dates before adopting this document as an authoritative production registry. No additional scanning is required or performed for this artifact-based assignment.
+
+## Task 11 Source Addendum
+
+Mike Torres’s Shadow Systems account adds A-124–A-126 (see [assessment](11-shadow_systems.md)). The registry now has 126 records, with the previous 85 explicitly identified scan responses unchanged; possible identity overlap with unresolved hosts prevents a new unique-device total. These devices/services remain Shadow IT pending action. Reported research files on Dr. Patel’s NAS require classification and do not alone establish a formal institutional research program. Earlier reconciliation conclusions remain dated to their source evidence and should be revisited where this new account supplies additional facts.
