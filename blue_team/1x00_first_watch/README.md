@@ -8,6 +8,8 @@ This project analyzes the supplied MedDefense Health Systems documentation to de
 
 - [Task 1 — Incident Classification](1-incident_classification.md): CIA classification of six incidents, with justified primary impacts and evidence-qualified secondary impacts.
 
+- [Task 2 — Billing Root-Cause Analysis](2-root_cause_analysis.md): mining-process evidence, CIA implications, limits of hardware remediation and recurrence after ransomware.
+
 - [Task 3 — Physical Security Risk Assessment](3-physical_assessment.md): five observations decomposed into vulnerability, threat, CIA impact and justified severity.
 
 - [Task 4 — Security Control Inventory](4-control_inventory.md): evidence-based control records across three categories and five functions, with a summary matrix and coverage limitations.
@@ -48,4 +50,4 @@ Task 16 consolidates prior deliverables, computes asset/control totals from thei
 
 ## Repository placement
 
-Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 3, 4, 7, 8, 10, 12, 14 and 16 are available. Task 2 diagnostics were used for Task 7; no separate Task 2 deliverable is included. Task 6 scenario evidence was incorporated into Task 7; no separate Task 6 strategy deliverable is included. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
+Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 7, 8, 10, 12, 14 and 16 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 scenario evidence was incorporated into Task 7; no separate Task 6 strategy deliverable is included. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
