@@ -253,44 +253,114 @@ Potential Impact: Staff may mishandle patient information, miss phishing or perm
 
 Distribution tags: G6; categories: Administrative; functions: Preventive, Detective.
 
+### GAP-015 — Public-facing vulnerability remediation lacks verified ownership and closure
+
+```text
+Gap ID: GAP-015
+Title: Public-facing vulnerability remediation lacks verified ownership and closure
+Affected Asset(s): FortiGate A-086 — Critical G4; web-srv-01 A-046 — Critical G10; billing-srv-01 A-039 — High G3, external exposure unverified
+Data at Risk: Task 9: patient clinical information Restricted; privileged configuration Restricted; public content Public but administrator access sensitive
+Current Control Status: C-001/C-003 filter perimeter traffic; C-055 covers EHR application updates only, not demonstrated FortiGate/web patch compliance; C-035/C-036 logs and C-022 server backups exist
+What is Missing: Administrative Preventive advisory ownership, risk-based maintenance deadlines and tracked exceptions; Technical Preventive verified version/configuration remediation and closure
+Risk Level: High
+Risk Justification: High provisional evidence-gap rating: critical public-facing dependencies have incomplete remediation evidence, not a proven exploitable FortiGate flaw. Existing logging/server recovery prevents claiming universally absent detection/correction; verify scope per device.
+Potential Impact: If an applicable exposed flaw is left unresolved, unauthorized entry could enable clinical data compromise and lateral disruption resembling Alpha/Gamma; their CVEs and exposure cannot be assigned to MedDefense without validation.
+```
+
+Distribution tags: G4; categories: Administrative, Technical; functions: Preventive.
+
+### GAP-016 — Public-service and intersite trust boundaries lack verified least-privilege enforcement
+
+```text
+Gap ID: GAP-016
+Title: Public-service and intersite trust boundaries lack verified least-privilege enforcement
+Affected Asset(s): web-srv-01 A-046, FortiGate A-086, AD A-040/A-041 — Critical; internal EHR/PACS/medical zones Critical
+Data at Risk: Task 9: EHR and imaging Restricted; privileged network/identity material Restricted; in transit and in use
+Current Control Status: C-001 refers to dmz, C-002 permits ALL VPN services, C-003 denial is preceded by broad allows; C-004 boundary logs and host logs/backups exist; S reports broad internal reachability
+What is Missing: Technical Preventive enforced approved flows across DMZ, VPN and internal zones; Administrative Preventive ownership and validation of application exceptions; Technical Detective review of interzone activity
+Risk Level: High
+Risk Justification: High because Critical/Restricted targets retain some logging/recovery but boundaries are broad or contradictory. Gamma highlights a specific DMZ-to-internal path not proven by the partial MedDefense export; the exact outbound rule remains an evidence gap.
+Potential Impact: A compromised portal or VPN session could attempt to reach identity and clinical services outside its business need, increasing the number of affected systems; do not infer universal successful access from scan reachability.
+```
+
+Distribution tags: G4; categories: Technical, Administrative; functions: Preventive, Detective.
+
+### GAP-017 — Patient-record bulk export lacks documented authorization and detection safeguards
+
+```text
+Gap ID: GAP-017
+Title: Patient-record bulk export lacks documented authorization and detection safeguards
+Affected Asset(s): EHR A-036/A-037/A-111 and portal A-114 — Critical; HR/business repositories High where applicable
+Data at Risk: Task 9: patient records/lab results Restricted; exported files remain Restricted at rest, in transit and in use
+Current Control Status: C-037 EHR audit export is delayed; C-035/C-036 and C-038 are local/reactive; backups C-022 exist but cannot undo disclosure; no approved export limits, permissions or alert evidence supplied
+What is Missing: Technical Preventive role-appropriate export restrictions; Technical Detective unusual-volume/source/time alerts; Administrative Preventive export approval and review with clinical exceptions
+Risk Level: High
+Risk Justification: Restricted records and incomplete controls meet High; existing audit capability is weak rather than absent. Beta demonstrates the consequence of uncontrolled extraction but does not prove MedDefense permits the same export volume or fields.
+Potential Impact: A valid or stolen account could copy patient records in bulk before discovery if export rights permit it, causing disclosure that recovery copies cannot reverse; MedDefense export capabilities must first be mapped.
+```
+
+Distribution tags: G1; categories: Technical, Administrative; functions: Preventive, Detective.
+
+### GAP-018 — Medical-device management credential baseline is unverified
+
+```text
+Gap ID: GAP-018
+Title: Medical-device management credential baseline is unverified
+Affected Asset(s): BD Alaris A-061–A-067 and other managed medical devices — Critical G5
+Data at Risk: Task 9: patient-linked device data Restricted; management credentials Restricted; safety-critical settings require strong integrity protection
+Current Control Status: C-013–C-015 Windows GPO and C-005 SSH do not establish device account protection; C-003 is indirect perimeter protection; GAP-001 already records missing pump detection and recovery
+What is Missing: Technical Preventive vendor-supported non-default unique credentials and restricted management access; Administrative Preventive commissioning/account ownership checks and safe change procedures
+Risk Level: High
+Risk Justification: High provisional validation priority, not a confirmed default-password finding; there is no local evidence that factory credentials remain. The already Critical missing device detection/recovery stays in GAP-001 and is not counted again as a newly proven exploit.
+Potential Impact: If default or shared management credentials are present, a reachable attacker could access patient-linked settings or attempt unauthorized changes; effects and safe credential-change support require biomedical/vendor validation.
+```
+
+Distribution tags: G5; categories: Technical, Administrative; functions: Preventive.
+
 ## Gap Distribution Summary
 
-| Risk level | Gap count |
+Updated by [Task 13 Reality Check](13-reality_check.md). Original gap IDs and levels remain stable; four provisional High evidence gaps are added.
+
+| Risk level | Count |
 |---|---:|
 | Critical | 5 |
-| High | 8 |
+| High | 12 |
 | Medium | 1 |
 | Low | 0 |
-| **Total** | **14** |
+| **Total** | **18** |
 
-| Primary asset category | Count | Gap IDs |
-|---|---:|---|
-| G1 — EHR and medication information | 2 | GAP-002, GAP-006 |
-| G2 — PACS and diagnostic imaging | 3 | GAP-003, GAP-005, GAP-011 |
-| G3 — Billing infrastructure | 1 | GAP-008 |
-| G4 — Network, identity and shared hosting | 1 | GAP-004 |
-| G5 — Bedside devices and clinical calls | 1 | GAP-001 |
-| G6 — Clinical endpoints | 1 | GAP-014 |
-| G7 — Administrative endpoints and business services | 2 | GAP-012, GAP-013 |
-| G8 — Backup and endpoint protection | 1 | GAP-007 |
-| G9 — Physical security and facilities | 1 | GAP-010 |
-| G10 — Website and patient portal | 1 | GAP-009 |
-
-| Missing/inadequate control dimension | Gaps mentioning it |
+| Primary Task 8 asset group | Gap count |
 |---|---:|
-| Technical | 12 |
-| Administrative | 14 |
+| G1 | 3 |
+| G2 | 3 |
+| G3 | 1 |
+| G4 | 3 |
+| G5 | 2 |
+| G6 | 1 |
+| G7 | 2 |
+| G8 | 1 |
+| G9 | 1 |
+| G10 | 1 |
+
+| Missing/inadequate dimension | Gaps mentioning it |
+|---|---:|
+| Technical | 16 |
+| Administrative | 18 |
 | Physical | 1 |
-| Preventive | 12 |
-| Detective | 14 |
+| Preventive | 16 |
+| Detective | 16 |
 | Corrective | 9 |
 | Compensating | 2 |
 | Deterrent | 0 |
 
-Counts by primary asset category sum to the gap total. Control-category/function counts overlap and must not be summed as separate gaps. PACS/imaging has the largest primary-category concentration; administrative/data services and EHR/medication also recur. Technical and Administrative weaknesses dominate together: missing technology and missing ownership, validation or recovery processes reinforce one another. Detective and Preventive gaps are widespread, with Corrective gaps especially consequential for clinical services. The smaller Physical count does not mean the server-room exposure is minor. Zero Deterrent entries reflects the selected gap scope, not proof that deterrence is comprehensive.
+EHR/medication (G1), imaging (G2) and shared network/identity (G4) now tie for the largest primary-group count at three each. Technical and Administrative safeguards dominate the missing dimensions. Category/function counts overlap and are not additive incidents or loss estimates. Newly documented evidence gaps do not establish that the same flaws exploited at Alpha, Beta or Gamma are present locally.
 
 ## Validation and action dependencies
 
 Reconcile P1–P6 with Task 9 when available and verify whether Task 11 changes either unknown device's identity, purpose or data exposure. Obtain pharmacy host/recovery evidence and core topology before treating missing documentation as proven absence; those may change their provisional Critical ratings. Validate device-safe recovery and permitted MRI/PACS flows before proposing operational restrictions. Test backups against clinical service requirements rather than assuming a successful file-server restore covers EHR or PACS.
 
 Cross-cutting gaps are deliberately separated by treatment: imaging recovery, account access and physical access are different missing safeguards even when they affect PACS together. They must not be summed into a numerical loss estimate. The severity distribution is an evidence-based prioritization under the stated rubric, not a prediction of incident frequency or a declaration of regulatory noncompliance.
+
+## Task 13 Validation Addendum
+
+The three supplied anonymized breach summaries validate relevance, not local exploitation or independently authenticated case attribution. See Task 13 for full source/date limitations and priority ordering. Task 9 and Task 11 are now available: earlier references to their absence describe the original analysis stage; new GAP-015–018 use Task 9 classifications. Update field-level classification and host identity evidence before reissuing a fully reconciled enterprise assessment. No prior gap is automatically closed or downgraded by these external cases.
