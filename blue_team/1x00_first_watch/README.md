@@ -14,6 +14,8 @@ This project analyzes the supplied MedDefense Health Systems documentation to de
 
 - [Task 7 — Asset Registry](7-asset_registry.md): consolidated onboarding, incidents, billing diagnostics, walk-through, controls, MRI scenario and network scan, with reconciliation notes.
 
+- [Task 8 — Asset Criticality Assessment](8-criticality_assessment.md): ten CIA-rated categories, complete registry-ID mapping and a justified top-five ranking.
+
 ## Evidence and methodology
 
 Task 0 uses the [provided onboarding packet](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/f313f31b0157a0d741006a77b1aff5d54bf3a4c8.txt). D1–D6 in the summary refer to its six documents. Reported facts, functional inferences and unresolved gaps are distinguished. Historical notes are not treated as independently verified current configurations. Sensitive credential values are omitted.
@@ -26,6 +28,8 @@ Task 4 reviews all eight sections of the supplied security-controls artifact pac
 
 Task 7 distinguishes responding assets, undocumented devices, logical services and aggregate inventory gaps. It incorporates the supplied Task 2 diagnostics and Task 6 MRI scenario, distinguishing operational facts from proposed controls and unresolved vendor/OS details.
 
+Task 8 evaluates impact separately from likelihood, takes the highest CIA rating as overall criticality, and distinguishes group-level importance from individual component outages.
+
 ## Repository placement
 
-Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 3, 4 and 7 are available. Task 2 diagnostics were used for Task 7; no separate Task 2 deliverable is included. Task 6 scenario evidence was incorporated into Task 7; no separate Task 6 strategy deliverable is included. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
+Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 3, 4, 7 and 8 are available. Task 2 diagnostics were used for Task 7; no separate Task 2 deliverable is included. Task 6 scenario evidence was incorporated into Task 7; no separate Task 6 strategy deliverable is included. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
