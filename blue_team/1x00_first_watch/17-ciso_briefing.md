@@ -2,24 +2,24 @@
 
 ## Opening Statement
 
-MedDefense has basic safeguards, but important treatment systems lack dependable monitoring and recovery. Previous incidents have already disrupted care, exposed laboratory results and stopped insurance claims for four days.
+MedDefense cannot reliably spot harmful interference with important care equipment or restore all essential services afterward. Previous incidents have exposed laboratory results, interrupted care and stopped insurance claims for four days.
 
 ## Critical Finding
 
-Our most dangerous gap is the lack of demonstrated attack detection and recovery for connected infusion pumps, which deliver medication. Their network access is insufficiently separated from ordinary computers; a compromised computer could provide a route toward treatment devices. Interference could threaten safe medication delivery, although no pump compromise has been established.
+Our greatest concern is medication pumps: we have not demonstrated that staff would recognize malicious interference or safely restore affected devices. Ordinary hospital computers can reach these pumps, potentially giving an intruder a way to interfere with medication delivery and harm patients. No pump attack has been confirmed.
 
 ## Three Priority Actions
 
-1. **Protect treatment and imaging first: $66,000 over 6–10 weeks.** Start clinical validation this week, then restrict pump and scanner connections, check medication-system changes before release, and establish recoverable imaging records.
+1. **Protect treatment and imaging first: $66,000 over 6–10 weeks.** Begin safety checks with clinicians this week, then limit which computers can communicate with pumps and scanners, check medication calculations before changes reach patients, and make imaging records recoverable.
 
-2. **Secure shared access to care: $21,000.** Restrict unnecessary access to patient records within five working days after confirming essential connections, and test restoration of the central hospital network within 3–4 weeks.
+2. **Protect access to care: $21,000.** Within five working days, remove unnecessary computer access to patient records after confirming doctors can still use them; within 3–4 weeks, test how to restore the equipment connecting hospital computers.
 
-3. **Protect recovery copies: $23,000 over 6–8 weeks.** Begin alongside the first action: keep independently protected copies away from production systems and demonstrate restoration; imaging recovery depends on this shared service.
+3. **Make recovery dependable: $23,000 over 6–8 weeks, starting alongside action one.** Keep spare copies of records away from the hospital, protect them from deletion by someone who breaks into hospital computers, and prove staff can restore them.
 
 ## The Business Case
 
-Approve $110,000 for these measures plus $10,000 contingency within the $120,000 annual budget; these are planning estimates requiring supplier confirmation and approximately 62 days of existing staff time. The investment addresses demonstrated disruption—including nine hours without electronic patient records—and protects imaging supporting approximately 45 scans daily, rather than assuming an unsupported financial-loss forecast.
+Approve $110,000 for these measures and $10,000 for unexpected costs, subject to supplier confirmation and approximately 62 days of existing staff time. This $120,000 investment addresses failures that already left doctors without electronic records for nine hours and protects imaging supporting approximately 45 examinations daily.
 
 ## Closing
 
-Without action, MedDefense remains exposed to repeated care disruption, loss of patient information and potentially unsafe treatment.
+Without action, another incident could again delay care, expose patient information or put safe medication delivery at risk.
