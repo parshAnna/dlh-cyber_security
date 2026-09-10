@@ -16,6 +16,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 5 — Supply Chain Assessment](5-supply_chain_assessment.md): five vendor access maps, compromise paths, existing controls and a cross-vendor governance priority.
 
+- [Task 6 — Threat Actor Matrix](6-threat_actor_matrix.md): six actor types with evidence-based likelihood, capability, motivation, vectors, asset/gap mappings and three priorities balancing likelihood and impact.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
