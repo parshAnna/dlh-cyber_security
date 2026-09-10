@@ -38,6 +38,8 @@ This project analyzes the supplied MedDefense Health Systems documentation to de
 
 - [Task 16 — Security Posture Assessment](16-security_posture_assessment.md): executive synthesis of inventory, criticality, controls, gaps and the annual treatment plan, with source limitations.
 
+- [Task 17 — Board Briefing](17-ciso_briefing.md): under-300-word executive decision brief, with three costed priorities and clinical consequences.
+
 ## Evidence and methodology
 
 Task 0 uses the [provided onboarding packet](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/f313f31b0157a0d741006a77b1aff5d54bf3a4c8.txt). D1–D6 in the summary refer to its six documents. Reported facts, functional inferences and unresolved gaps are distinguished. Historical notes are not treated as independently verified current configurations. Sensitive credential values are omitted.
@@ -62,7 +64,7 @@ Task 16 consolidates prior deliverables, computes asset/control totals from thei
 
 ## Repository placement
 
-Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 and 16 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 provides a proposed MRI strategy; its measures are not represented as deployed controls. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
+Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 and 17 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 provides a proposed MRI strategy; its measures are not represented as deployed controls. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
 
 ## Source update — Task 9
 
@@ -79,3 +81,7 @@ Task 13 adds GAP-015–018 to Task 12 and refreshes its distribution to 18 gaps 
 ## Source update — Task 15
 
 Task 15 reconciles Marcus’s draft and adds GAP-019–023 to Task 12: 23 current gaps (5 Critical, 16 High, 2 Medium). Task 13’s 18-gap count and earlier report totals describe their prior evidence cutoffs. Task 14’s budget and Task 16 await consolidated reissue; no additional spending or deployed protection is assumed.
+
+## Task 17 briefing traceability
+
+The briefing preserves Task 16’s three action groups and Task 14’s planning allowances: treatment/imaging GAP-001/002/003/005 ($66,000), shared access GAP-004/006 ($21,000), and independent recovery GAP-007 ($23,000). Shared recovery is counted once and starts in parallel. Timelines are conditional on clinical/vendor validation; approximately 62 internal person-days and the $10,000 reserve remain explicit. Incident A supports four days of claims interruption, Incident E supports nine hours without electronic records, and the MRI scenario supports approximately 45 daily studies. The critical pump finding is GAP-001; potential harm is distinguished from a confirmed compromise. Tasks 13/15 added gaps without changing the original seven priority ratings; this concise briefing does not imply that the remaining gaps have been funded or resolved.
