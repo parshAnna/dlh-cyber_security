@@ -317,43 +317,123 @@ Potential Impact: If default or shared management credentials are present, a rea
 
 Distribution tags: G5; categories: Technical, Administrative; functions: Preventive.
 
+### GAP-019 — Patient-portal transport baseline permits legacy TLS according to unverified draft
+
+```text
+Gap ID: GAP-019
+Title: Patient-portal transport baseline permits legacy TLS according to unverified draft
+Affected Asset(s): web-srv-01 A-046 / portal A-114 — Critical G10
+Data at Risk: Task 9: lab results and authenticated patient information Restricted in transit; published website text Public
+Current Control Status: C-001 offers HTTP/HTTPS; C-036 logs and C-022 backups exist; no effective TLS/cipher or redirect configuration supplied
+What is Missing: Technical Preventive validated supported TLS configuration and secure client paths; Administrative Preventive configuration ownership and compatibility review
+Risk Level: High
+Risk Justification: Provisional High: Marcus section 2 reports TLS 1.0 alongside 1.2 without a configuration extract. Restricted data and incomplete transport assurance warrant validation, not a claim that traffic was intercepted or every session uses TLS 1.0.
+Potential Impact: If weak protocol negotiation or unprotected routes are usable, an appropriately positioned attacker could threaten session confidentiality/integrity; actual settings, clients and attack prerequisites remain unknown.
+```
+
+Distribution tags: G10; categories: Technical, Administrative; functions: Preventive.
+
+### GAP-020 — Removable-media and outbound sharing restrictions lack verified data controls
+
+```text
+Gap ID: GAP-020
+Title: Removable-media and outbound sharing restrictions lack verified data controls
+Affected Asset(s): Clinical/administrative endpoints G6 Critical integrity / G7 High; EHR and patient-linked files Restricted
+Data at Risk: Task 9: patient information Restricted; HR/business documents Confidential; exports at rest, in use and in transit
+Current Control Status: C-017–C-021 protect covered endpoints from some malware; C-032 training and C-033 tracking exist; GAP-017 covers bulk EHR export but not all downstream USB/email/cloud channels
+What is Missing: Technical Preventive approved removable-media and sensitive-sharing restrictions; Technical Detective endpoint/export monitoring; Administrative Preventive documented clinical exceptions and data handling
+Risk Level: High
+Risk Justification: Marcus section 2 alleges unrestricted USB and no DLP, consistent with incomplete controls but not independently verified for every endpoint. High-sensitive-data exposure and partial protection justify High; lack of a DLP product alone does not prove no access control.
+Potential Impact: An authorized user or compromised session could copy readable patient or business files to removable media or personal cloud/email channels if permitted; actual file access, transfer and theft are not demonstrated.
+```
+
+Distribution tags: G6; categories: Technical, Administrative; functions: Preventive, Detective.
+
+### GAP-021 — HQ landlord-managed network lacks documented security responsibility and assurance
+
+```text
+Gap ID: GAP-021
+Title: HQ landlord-managed network lacks documented security responsibility and assurance
+Affected Asset(s): HQ network A-110 and VPN dependency — Critical group G4; HQ endpoints A-081–A-085 — High G7
+Data at Risk: Task 9: corporate/HR data Confidential; credentials Restricted; intersite data may include Restricted content depending on workflows
+Current Control Status: O describes landlord-managed network and MedDefense VLAN; C-002/C-004 VPN perimeter rules/logs exist; C-031 cameras are outside MedDefense access; exact HQ termination/security configuration unknown
+What is Missing: Administrative Preventive provider responsibility, access/patch/incident obligations and assurance review; Technical Detective supported visibility into relevant tenant/VPN events
+Risk Level: High
+Risk Justification: Shared network dependency and sensitive traffic have incomplete documented oversight. Marcus section 2 reinforces O but does not prove malicious landlord activity, insecure cryptography or compromise; existing perimeter controls remain present.
+Potential Impact: Provider changes, unauthorized management access or an unreported shared-infrastructure incident could interrupt HQ access or expose reachable services; tenant isolation and VPN termination require verification.
+```
+
+Distribution tags: G4; categories: Administrative, Technical; functions: Preventive, Detective.
+
+### GAP-022 — Organization-wide change approval and rollback evidence is incomplete
+
+```text
+Gap ID: GAP-022
+Title: Organization-wide change approval and rollback evidence is incomplete
+Affected Asset(s): Pharmacy A-093, EHR A-036/A-037 and core A-087 — Critical; backup platform G8 Critical
+Data at Risk: Task 9: clinical/dosage information and recovery copies Restricted; configuration integrity across all states
+Current Control Status: C-024 partial restore test, C-043 paper fallback and C-047 restarts exist; GAP-002 and GAP-004 cover particular systems, not enterprise change governance
+What is Missing: Administrative Preventive documented approval, testing, ownership and maintenance windows; Administrative Detective post-change validation; Administrative Corrective tested rollback and escalation
+Risk Level: High
+Risk Justification: Marcus alleges universal ad-hoc changes; I C/E/A independently show dosage-script error, untested migration rollback and a misconfigured backup job. These validate a systemic evidence gap, not proof every change lacks authorization; partial detective/corrective capabilities are acknowledged.
+Potential Impact: Poorly validated changes could corrupt dosage/reference data, interrupt EHR access or silently stop backups, turning routine maintenance into clinical disruption; causation of the cron fault by an unauthorized change remains Marcus’s claim.
+```
+
+Distribution tags: G1; categories: Administrative; functions: Preventive, Detective, Corrective.
+
+### GAP-023 — Legacy print server remains active without verified supported maintenance and containment
+
+```text
+Gap ID: GAP-023
+Title: Legacy print server remains active without verified supported maintenance and containment
+Affected Asset(s): print-srv-01 A-043 — member of High G7; standalone printing availability provisionally Medium per Task 8 component boundary
+Data at Risk: Print-job/spool content unknown; routine documents Internal, business records Confidential, patient documents Restricted if present
+Current Control Status: C-013–C-015 policy and C-034 Windows logs reported; C-003 perimeter protection exists; C-022 excludes print server; no server antivirus coverage established
+What is Missing: Technical Preventive verify support/patch state and restrict required print/management flows; Administrative Preventive approved migration/retirement and dependency mapping
+Risk Level: Medium
+Risk Justification: Upgrade from Marcus’s Low to provisional Medium for this component: it responds internally and retains a legacy OS with partial controls, but actual sensitive spool contents, privileges and exploitability are unverified. Escalate if Restricted spooling or a usable path to Critical systems is confirmed.
+Potential Impact: Compromise could disrupt printing, expose any readable spooled documents or support attempts at lateral movement. Internal placement is not immunity, but no specific installed vulnerability or successful pivot is claimed.
+```
+
+Distribution tags: G7; categories: Technical, Administrative; functions: Preventive.
+
 ## Gap Distribution Summary
 
-Updated by [Task 13 Reality Check](13-reality_check.md). Original gap IDs and levels remain stable; four provisional High evidence gaps are added.
+Updated by Tasks 13 and 15. Original IDs remain stable; new evidence gaps are provisional where direct configuration evidence is absent.
 
 | Risk level | Count |
 |---|---:|
 | Critical | 5 |
-| High | 12 |
-| Medium | 1 |
+| High | 16 |
+| Medium | 2 |
 | Low | 0 |
-| **Total** | **18** |
+| **Total** | **23** |
 
-| Primary Task 8 asset group | Gap count |
+| Primary Task 8 group | Count |
 |---|---:|
-| G1 | 3 |
+| G1 | 4 |
 | G2 | 3 |
 | G3 | 1 |
-| G4 | 3 |
+| G4 | 4 |
 | G5 | 2 |
-| G6 | 1 |
-| G7 | 2 |
+| G6 | 2 |
+| G7 | 3 |
 | G8 | 1 |
 | G9 | 1 |
-| G10 | 1 |
+| G10 | 2 |
 
 | Missing/inadequate dimension | Gaps mentioning it |
 |---|---:|
-| Technical | 16 |
-| Administrative | 18 |
+| Technical | 20 |
+| Administrative | 23 |
 | Physical | 1 |
-| Preventive | 16 |
-| Detective | 16 |
-| Corrective | 9 |
+| Preventive | 21 |
+| Detective | 19 |
+| Corrective | 10 |
 | Compensating | 2 |
 | Deterrent | 0 |
 
-EHR/medication (G1), imaging (G2) and shared network/identity (G4) now tie for the largest primary-group count at three each. Technical and Administrative safeguards dominate the missing dimensions. Category/function counts overlap and are not additive incidents or loss estimates. Newly documented evidence gaps do not establish that the same flaws exploited at Alpha, Beta or Gamma are present locally.
+EHR/medication and shared network/identity now have four primary gaps each, followed by imaging and administrative/business services with three each. Dimension counts overlap; they are not independent incidents or additive loss estimates. Technical and Administrative safeguards remain the dominant needs.
 
 ## Validation and action dependencies
 
@@ -364,3 +444,7 @@ Cross-cutting gaps are deliberately separated by treatment: imaging recovery, ac
 ## Task 13 Validation Addendum
 
 The three supplied anonymized breach summaries validate relevance, not local exploitation or independently authenticated case attribution. See Task 13 for full source/date limitations and priority ordering. Task 9 and Task 11 are now available: earlier references to their absence describe the original analysis stage; new GAP-015–018 use Task 9 classifications. Update field-level classification and host identity evidence before reissuing a fully reconciled enterprise assessment. No prior gap is automatically closed or downgraded by these external cases.
+
+## Task 15 Source Addendum
+
+[Predecessor Review](15-predecessor_review.md) adds GAP-019–023 after evaluating Marcus’s draft. The current total is 23 gaps: 5 Critical, 16 High, 2 Medium. Historical totals above in dated Task 13 discussion describe that update stage. Claims about offsite tapes, default credentials, TLS configuration and universal control absence require reconciliation; they are not automatically adopted as confirmed facts. No existing GAP-001–018 rating is changed by the draft alone.

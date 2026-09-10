@@ -34,6 +34,8 @@ This project analyzes the supplied MedDefense Health Systems documentation to de
 
 - [Task 14 — Risk Treatment Decisions](14-risk_decisions.md): seven prioritized mitigation packages, $110,000 in planning allowances and a $10,000 contingency; Task 13 updates remain unavailable.
 
+- [Task 15 — Predecessor Review](15-predecessor_review.md): comparison of Marcus’s draft, five added/expanded gaps and a four-sentence external-threat transition.
+
 - [Task 16 — Security Posture Assessment](16-security_posture_assessment.md): executive synthesis of inventory, criticality, controls, gaps and the annual treatment plan, with source limitations.
 
 ## Evidence and methodology
@@ -60,7 +62,7 @@ Task 16 consolidates prior deliverables, computes asset/control totals from thei
 
 ## Repository placement
 
-Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 and 16 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 provides a proposed MRI strategy; its measures are not represented as deployed controls. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
+Place this directory at `blue_team/1x00_first_watch` in the `dlh-cyber_security` repository. Deliverables for Tasks 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 and 16 are available. Task 2 diagnostics support both the dedicated root-cause analysis and Task 7 registry. Task 6 provides a proposed MRI strategy; its measures are not represented as deployed controls. Task numbers follow the assignment filenames, which may differ from the platform navigation order.
 
 ## Source update — Task 9
 
@@ -73,3 +75,7 @@ Task 11 adds three reported shadow systems to Task 7, bringing the record count 
 ## Source update — Task 13
 
 Task 13 adds GAP-015–018 to Task 12 and refreshes its distribution to 18 gaps (5 Critical, 12 High, 1 Medium). Existing levels remain unchanged; Task 14/16 retain their original seven-package budget and earlier reporting cutoffs pending a consolidated reissue. No new expenditure or control deployment is inferred.
+
+## Source update — Task 15
+
+Task 15 reconciles Marcus’s draft and adds GAP-019–023 to Task 12: 23 current gaps (5 Critical, 16 High, 2 Medium). Task 13’s 18-gap count and earlier report totals describe their prior evidence cutoffs. Task 14’s budget and Task 16 await consolidated reissue; no additional spending or deployed protection is assumed.
