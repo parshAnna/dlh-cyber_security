@@ -6,6 +6,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 0 — Healthcare Threat Landscape Summary](0-threat_landscape_summary.md): five actor categories, healthcare targeting mechanisms, evidenced trends and MedDefense-specific relevance.
 
+- [Task 1 — Threat Actor Taxonomy](1-threat_actor_taxonomy.md): eight justified classifications, competing explanations for Report G and explicit attribution limits.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
