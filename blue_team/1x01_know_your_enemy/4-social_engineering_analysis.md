@@ -6,14 +6,14 @@ Basis: The seven supplied scenarios. Each record selects a primary term from the
 
 ```text
 Scenario 1:
-  Vector Type: Brand impersonation — the message borrows Fortinet's support identity; phishing is the email delivery method.
+  Vector Type: Phishing — email delivers the lure; brand impersonation supplies the false Fortinet support identity.
   Target: Sarah Park, IT Director — responsibility for the FortiGate 100F and service continuity makes an urgent vendor patch request relevant to her duties.
-  Psychological Lever: Fear — threatened service termination pressures Sarah to act; urgency reinforces it.
+  Psychological Lever: Urgency — the 24-hour deadline pressures Sarah to act before verification; fear of service termination reinforces it.
   Red Flags:
     1. The sender uses fortinet-support.net, a separate domain whose vendor ownership has not been established through the approved support records.
     2. The message threatens service termination within 24 hours unless a firmware download is followed.
     3. An unsolicited email directs installation through its own link instead of an independently accessed, approved support channel.
-  Technical Control: Enforce application control on the administrative workstation so downloaded installers or update utilities cannot run unless approved through the software-release process.
+  Technical Control: Deploy an email-security gateway with lookalike-domain detection, URL reputation checking and link sandboxing to quarantine suspicious vendor-patch messages.
   Administrative Control: Require firmware changes to be verified through the vendor portal or support contact already held in IT records before downloading or installing an update.
 ```
 
@@ -42,7 +42,7 @@ A plausible business purpose does not override payment verification. Sender auth
 Scenario 3:
   Vector Type: Vishing — the attack uses a voice call, with an emergency-audit pretext and IT impersonation.
   Target: A MedDefense Central nurse — concern about the billing incident and reliance on the EHR make an apparent IT request seem relevant during a busy shift.
-  Psychological Lever: Authority — the caller presents a security audit as an IT requirement.
+  Psychological Lever: Helpfulness — the nurse is asked to help verify access during an emergency audit; the claimed IT authority reinforces the request.
   Red Flags:
     1. The caller asks the nurse to disclose the password rather than use an approved authentication process.
     2. An unsolicited caller's first name and claim to work in IT are the only identity evidence supplied.
