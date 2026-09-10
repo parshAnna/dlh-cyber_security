@@ -14,6 +14,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 4 — Social Engineering Analysis](4-social_engineering_analysis.md): seven vector classifications with three warning signs and technical/administrative countermeasures for each.
 
+- [Task 5 — Supply Chain Assessment](5-supply_chain_assessment.md): five vendor access maps, compromise paths, existing controls and a cross-vendor governance priority.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
