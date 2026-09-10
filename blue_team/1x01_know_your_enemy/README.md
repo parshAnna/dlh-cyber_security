@@ -8,6 +8,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 1 — Threat Actor Taxonomy](1-threat_actor_taxonomy.md): eight justified classifications, competing explanations for Report G and explicit attribution limits.
 
+- [Task 2 — Ransomware Threat Assessment](2-ransomware_assessment.md): BlackReef operating model, healthcare incentives, four sequenced internal gaps and a qualified twelve-month likelihood judgment.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
