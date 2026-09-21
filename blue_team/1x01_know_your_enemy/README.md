@@ -30,6 +30,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 13 — MITRE ATT&CK Mapping](13-attck_mapping.md): all 17 steps from two MedDefense attack narratives mapped to primary Enterprise tactics, specific techniques, alternatives and environment factors.
 
+- [Task 14 — Integrated Threat Scenarios](14-threat_scenarios.md): three distinct external, insider and supply-chain scenarios integrating actors, vectors, ATT&CK sequences, STRIDE threats, assets, business impacts, documented gaps and step-specific detection opportunities.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
