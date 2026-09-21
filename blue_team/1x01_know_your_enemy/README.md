@@ -24,6 +24,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 9 — Vector-to-Asset Matrix](9-vector_asset_matrix.md): eight human and technical vectors cross-referenced against seven critical asset groups, with quantified connectivity priorities.
 
+- [Task 10 — Critical Kill Chains](10-kill_chains.md): five Task 9 threat paths developed from initial access through business impact, with evidence-based gaps and multiple defensive break points.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
