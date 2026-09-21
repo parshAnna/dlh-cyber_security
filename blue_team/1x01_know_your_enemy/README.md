@@ -20,6 +20,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 7 — Attack Surface Map](7-attack_surface_map.md): external, internal and human entry points mapped to MedDefense assets, deployed controls and First Watch gap IDs.
 
+- [Task 8 — Technical Vector Assessment](8-technical_vectors.md): six Sec+ technical vectors tied to scan evidence, affected MedDefense assets, T6 actors, existing controls and First Watch gaps.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
