@@ -34,6 +34,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 15 — Gap–Threat Correlation](15-gap_threat_correlation.md): all 23 First Watch gaps correlated to T6 actors, T10 kill chains and T14 scenarios, with updated risk levels, a threat-informed ranking, the three most connected gaps and the Medium-to-High surprise.
 
+- [Task 16 — Prioritized Threat Assessment](16-threat_priority_assessment.md): definitive Top 5 threat ranking with evidence-based likelihood and impact, one highest-leverage gap and effort-sized action per threat, plus two next-quarter defensive investment priorities.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
