@@ -22,6 +22,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 8 — Technical Vector Assessment](8-technical_vectors.md): six Sec+ technical vectors tied to scan evidence, affected MedDefense assets, T6 actors, existing controls and First Watch gaps.
 
+- [Task 9 — Vector-to-Asset Matrix](9-vector_asset_matrix.md): eight human and technical vectors cross-referenced against seven critical asset groups, with quantified connectivity priorities.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
