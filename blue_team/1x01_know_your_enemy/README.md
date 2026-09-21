@@ -26,6 +26,8 @@ This project examines external threats in relation to MedDefense's documented in
 
 - [Task 10 — Critical Kill Chains](10-kill_chains.md): five Task 9 threat paths developed from initial access through business impact, with evidence-based gaps and multiple defensive break points.
 
+- [Task 11 — STRIDE Threat Model for the EHR](11-stride_ehr.md): twelve MedDefense-specific threats across all six STRIDE categories, mapped to T8 vectors, deployed controls and First Watch gaps.
+
 ## Sources and method
 
 The summary reviews all six files in the [provided intelligence dossier](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/af4dc3417218ae10f115b06c4288dcf17f0dc80d.txt). Its statistics and source labels are attributed to the supplied excerpts, not represented as independently verified current publications. Marcus's interpretations are distinguished from direct evidence and confirmed internal findings.
