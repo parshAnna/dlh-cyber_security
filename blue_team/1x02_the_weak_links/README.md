@@ -6,6 +6,10 @@ This project converts MedDefense's vulnerability-scan output into a threat-infor
 
 - [Task 0 — Vulnerability Scan First Impressions](0-first_impressions.md): scan metadata, severity distribution, asset concentration, first-pass relationships and scope limitations.
 
+- [Task 1 — CVE Ecosystem Research](1-cve_ecosystem.md): NVD research for one Critical, High and Medium scan finding, plus CVE identifiers, CNAs, record lifecycle states and a rejected-record example.
+
 ## Evidence Approach
 
 Task 0 uses the complete [SecurePoint Consulting OpenVAS report](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2026/3/3d9524922b7e610ce212603cb9f59167c5926948.txt) supplied with the assignment and the [Project 1x00 Asset Registry](../1x00_first_watch/7-asset_registry.md). It counts numbered scan findings rather than treating each CVE or affected fleet member as a separate report item. No external CVE, exploit or vendor research is used at this stage, and observations are explicitly separated from later validation and prioritization work.
+
+Task 1 uses the live NVD records and NVD CPE applicability data available on the stated research date. Scan severity and NVD base severity are recorded separately; references are selected from each NVD record rather than introduced from unrelated searches.
