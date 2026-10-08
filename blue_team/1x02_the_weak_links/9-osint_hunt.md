@@ -30,43 +30,43 @@ Applicability Status: Potentially applicable — exact FortiOS version requires 
 
 ---
 
-## 2. Microsoft 365 / Entra ID — Device Code Phishing
+## 2. Microsoft 365 / Entra ID — Storm-2372 Device Code Phishing
 
-Source: [Microsoft Security Blog — Inside an AI-enabled device code phishing campaign](https://www.microsoft.com/en-us/security/blog/2026/04/06/ai-enabled-device-code-phishing-campaign-april-2026/)
+Source: [Microsoft Security Blog — Storm-2372 conducts device code phishing campaign](https://www.microsoft.com/en-us/security/blog/2025/02/13/storm-2372-conducts-device-code-phishing-campaign/)
 
 CVE: N/A — this is an identity attack technique rather than a software vulnerability.
 
 Affected Product: MedDefense Microsoft Office 365 E3 / Microsoft Entra ID environment and organizational user accounts.
 
-Why the Scan Missed It: The SecurePoint infrastructure vulnerability scan did not assess MedDefense's Microsoft 365 cloud tenant or Entra ID authentication behavior. Device code phishing is also not a traditional version-based software vulnerability that a network scanner can detect. The attack abuses a legitimate OAuth authentication workflow together with social engineering, valid Microsoft sign-in infrastructure, and stolen access or refresh tokens.
+Why the Scan Missed It: The SecurePoint infrastructure vulnerability scan did not assess MedDefense's Microsoft 365 cloud tenant or Entra ID authentication flows. Device code phishing is also not a traditional version-based vulnerability that a network vulnerability scanner can identify. It abuses a legitimate OAuth authentication mechanism together with social engineering and valid authentication tokens.
 
-CVSS / Severity: N/A because this is not a CVE. MedDefense-specific severity assessment: High. Microsoft has documented active campaigns successfully compromising organizational accounts through device code authentication abuse.
+CVSS / Severity: N/A because this is not a CVE. MedDefense-specific severity assessment: High. Microsoft documented an active and successful device code phishing campaign targeting organizations across multiple sectors, including healthcare.
 
-MedDefense Impact: An attacker could socially engineer a MedDefense employee into authorizing an attacker-controlled device-code session. Successful authentication can issue valid access and refresh tokens without the attacker directly stealing the user's password. Microsoft has observed post-compromise activity including Microsoft Graph reconnaissance, email collection and exfiltration, malicious inbox rules, device registration, token-based persistence, and targeting of financial and executive users. For MedDefense, compromise of an O365 account could expose internal communications, patient-related correspondence, billing information, credentials or reset messages, and could provide a trusted identity for additional phishing against clinical or administrative staff.
+MedDefense Impact: An attacker could trick a MedDefense employee into completing a legitimate-looking device code authentication request. The attacker could then obtain valid access and refresh tokens and access Microsoft 365 resources available to that user. Microsoft observed attackers using compromised accounts for Microsoft Graph searches, email harvesting, email exfiltration, lateral phishing, and device registration. For MedDefense, this could expose internal correspondence, patient-related communications, billing information, credentials, reset messages, and trusted organizational identities that could be abused to target additional employees.
 
-Recommendation: Block OAuth device code flow where it is not operationally required and control any necessary use through Microsoft Entra Conditional Access. Enable phishing-resistant authentication such as FIDO2/passkeys for privileged and sensitive users. Configure Defender for Office 365 anti-phishing protections and Safe Links, monitor risky and anomalous sign-ins, restrict device registration permissions, and alert on unusual device-code authentication. If compromise is suspected, revoke sign-in sessions and refresh tokens, force re-authentication, investigate inbox rules and Graph activity, and temporarily disable the affected account where necessary for immediate containment.
+Recommendation: Block device code flow wherever it is not operationally required. Where it must remain available, control it using Microsoft Entra Conditional Access. Require phishing-resistant MFA such as FIDO2 security keys or passkeys for privileged and sensitive accounts, monitor risky and anomalous sign-ins, restrict device enrollment, and monitor for suspicious token or device-registration activity. If compromise is suspected, revoke sign-in sessions and refresh tokens and force re-authentication.
 
-Applicability Status: Applicable attack technique — MedDefense uses Microsoft 365 / Entra ID, although exposure depends on tenant configuration and whether device-code authentication is permitted.
+Applicability Status: Applicable attack technique — MedDefense uses Microsoft 365 / Entra ID, although exposure depends on tenant configuration and whether device code authentication is permitted.
 
 ---
 
-## 3. Synology DSM — CVE-2026-13684
+## 3. Synology DSM — CVE-2024-45538
 
-Source: [Synology Product Security Advisory — Synology-SA-26:13 DSM](https://www.synology.com/en-global/security/advisory/Synology_SA_26_13)
+Source: [Synology Product Security Advisory — Synology-SA-24:27 DSM](https://www.synology.com/en-us/security/advisory/Synology_SA_24_27); [NVD CVE-2024-45538](https://nvd.nist.gov/vuln/detail/CVE-2024-45538)
 
-CVE: CVE-2026-13684
+CVE: CVE-2024-45538
 
-Affected Product: MedDefense `NAS-01`, which runs Synology DSM 7. Synology identifies vulnerable releases in the DSM 7.2.1, 7.2.2, 7.3 and 7.4 branches. The exact DSM version and build installed on `NAS-01` must be checked before confirming exposure.
+Affected Product: MedDefense `NAS-01`, which runs Synology DSM 7. Synology identifies affected DSM versions before DSM 7.2.1-69057-2 and DSM 7.2.2-72806. The exact DSM version installed on `NAS-01` must be verified before exposure can be confirmed.
 
-Why the Scan Missed It: The SecurePoint scan identified the Synology DSM management interface and configuration exposure but did not report CVE-2026-13684. The scanner may not have obtained the exact DSM build required for vulnerability matching, or its vulnerability plugin/database may not have included the advisory. Manual OSINT research therefore identifies a software risk that requires direct version validation on the NAS.
+Why the Scan Missed It: The SecurePoint scan identified the Synology DSM management interface as reachable but did not report CVE-2024-45538. The scanner may not have been able to determine the exact DSM build, may not have authenticated deeply enough to identify the affected WebAPI component, or may not have had the corresponding vulnerability check available when the scan was performed.
 
-CVSS / Severity: Critical — CVSS v3.1 Base Score 9.8.
+CVSS / Severity: CVSS v3.1 Base Score 9.6. Synology rates the advisory Important. The vulnerability is a cross-site request forgery issue in the DSM WebAPI Framework that can allow a remote attacker to execute arbitrary code through unspecified vectors when the required user interaction occurs.
 
-MedDefense Impact: CVE-2026-13684 is an unauthenticated remote vulnerability in the DSM SCGI component that can allow attackers to read or write arbitrary files and conduct denial-of-service attacks. This is particularly serious for MedDefense because `NAS-01` stores server backup data. Unauthorized file access could expose sensitive backup contents, while arbitrary file modification or service disruption could damage backup integrity or availability. During a ransomware incident, loss of trustworthy backups could significantly reduce MedDefense's ability to restore clinical, billing, or infrastructure systems.
+MedDefense Impact: `NAS-01` stores MedDefense server backups. Successful code execution on the NAS could threaten the confidentiality, integrity, and availability of backup data. An attacker could potentially use control of the NAS to access sensitive backup information, alter stored data, disrupt backup services, or interfere with recovery operations. This would be particularly damaging during a ransomware incident because MedDefense depends on reliable backups to restore clinical, billing, and infrastructure systems.
 
-Recommendation: Determine the exact DSM branch and build on `NAS-01`. Upgrade to the Synology-fixed release appropriate for that branch, including DSM 7.2.1-69057-12 or later, DSM 7.2.2-72806-9 or later, DSM 7.3.2-86009-4 or later, or DSM 7.4-90075 or later as applicable. Restrict DSM management ports to dedicated administrator systems, prevent unnecessary network-wide access to the NAS, enable MFA for administrative accounts, review logs for suspicious access, and ensure backups are protected by offline or immutable copies so compromise of the NAS does not eliminate recovery capability.
+Recommendation: Verify the exact DSM version and build on `NAS-01`. If the NAS is running an affected release, upgrade to DSM 7.2.1-69057-2 or later, DSM 7.2.2-72806 or later, or another supported fixed DSM release. Restrict DSM management access to dedicated administrator systems, require MFA for administrative accounts, monitor DSM logs for suspicious activity, and maintain offline or immutable backup copies so compromise of the NAS does not eliminate MedDefense's recovery capability.
 
-Applicability Status: Potentially applicable — DSM 7 is present, but exact version/build requires validation.
+Applicability Status: Potentially applicable — MedDefense uses DSM 7, but the exact DSM version and build must be validated.
 
 ---
 
