@@ -34,7 +34,7 @@ A successful exploit does not automatically compromise every other MedDefense sy
 
 The scan identifies Apache 2.4.29 with the affected `mod_lua` functionality on `billing-srv-01`. Successful exploitation can provide remote code execution on the billing server.
 
-### Scenario A — Current Flat Network
+### Scenario A: Current (Flat Network)
 
 **Who can reach this vulnerability:**
 
@@ -66,7 +66,7 @@ The compromise can therefore change from a billing-server incident into a latera
 
 The intrinsic CVSS score is already Critical, but MedDefense's network architecture increases the environmental consequences. Instead of compromising one application server inside a contained billing segment, successful exploitation creates a foothold with broad visibility toward unrelated clinical and administrative systems.
 
-### Scenario B — Hypothetical Segmented Network
+### Scenario B: Hypothetical (Segmented Network)
 
 **Who can reach this vulnerability:**
 
@@ -117,7 +117,7 @@ Segmentation would not remove CVE-2021-44790 or eliminate the need to patch Apac
 
 The scan identifies an active Windows Print Spooler on the legacy `print-srv-01`. CVE-2021-34527 can allow a network attacker with the required low-level access to execute code with SYSTEM privileges.
 
-### Scenario A — Current Flat Network
+### Scenario A: Current (Flat Network)
 
 **Who can reach this vulnerability:**
 
@@ -150,7 +150,7 @@ Although the scan CVSS Base score is 8.8 High, successful SYSTEM-level compromis
 
 The environmental risk is therefore higher than the base score alone suggests.
 
-### Scenario B — Hypothetical Segmented Network
+### Scenario B: Hypothetical (Segmented Network)
 
 **Who can reach this vulnerability:**
 
@@ -208,7 +208,7 @@ The scan identifies SMB port `445/tcp` as open on this legacy medical-device wor
 
 The earlier technical-vector analysis also records ports `135`, `139`, and `445` on this system and places it on the general workstation network rather than in an isolated medical-device security zone.
 
-### Scenario A — Current Flat Network
+### Scenario A: Current (Flat Network)
 
 **Who can reach this vulnerability:**
 
@@ -244,7 +244,7 @@ The base vulnerability is High, but MedDefense's architecture places an unsuppor
 
 The combination of legacy software, clinical importance, remote exploitability, and lack of segmentation raises the real-world environmental risk beyond the CVSS Base score alone.
 
-### Scenario B — Hypothetical Segmented Network
+### Scenario B: Hypothetical (Segmented Network)
 
 **Who can reach this vulnerability:**
 
