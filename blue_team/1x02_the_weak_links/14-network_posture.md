@@ -13,6 +13,7 @@ The selected vulnerabilities are:
 | 004 | CVE-2017-0144 | `WS-RAD-01` / MRI controller — `10.10.1.70` | 8.1 |
 
 The earlier MedDefense network assessment identified the Central environment as a broadly connected `10.10.0.0/16` network without effective segmentation between normal workstations, servers, clinical systems, and important infrastructure.
+In the hypothetical segmented network, only systems in the same VLAN can directly reach the vulnerable host unless an explicitly permitted firewall path allows inter-VLAN communication.
 
 For this analysis, "Risk Amplification Factor" is qualitative rather than a fabricated numeric multiplier. The project does not provide a mathematical formula for calculating a network amplification value. The factor therefore describes how much the flat architecture increases attacker reachability and post-compromise blast radius.
 
