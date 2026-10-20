@@ -93,7 +93,7 @@ The vulnerability would therefore remain serious, but the blast radius would be 
 
 **Effective Risk:** **High to Critical within the billing segment, but substantially reduced at the enterprise level.**
 
-### Risk Amplification Factor
+### Risk Amplification Factor:
 
 **Very High.**
 
@@ -174,7 +174,7 @@ Access to the EHR, PACS, medical devices, backup infrastructure, or domain-contr
 
 The vulnerability remains serious because SYSTEM-level execution on a production server is significant, but the compromise would be more likely to remain a print-services incident rather than immediately becoming an enterprise-wide lateral-movement opportunity.
 
-### Risk Amplification Factor
+### Risk Amplification Factor:
 
 **Very High.**
 
@@ -280,7 +280,7 @@ would require crossing a firewall-controlled boundary or exploiting another perm
 
 The vulnerability would still require urgent remediation or compensating controls because the legacy MRI controller remains clinically important. However, segmentation would greatly reduce the probability that compromise of one medical device becomes an organization-wide incident.
 
-### Risk Amplification Factor
+### Risk Amplification Factor:
 
 **Very High.**
 
