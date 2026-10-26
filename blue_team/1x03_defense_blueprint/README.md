@@ -1,0 +1,27 @@
+# 1x03 — Defense Blueprint
+
+**Organization:** MedDefense Health Systems  
+**Program:** DLH Cybersecurity — Blue Team  
+**Planning horizon:** Six months  
+**Security investment ceiling:** $120,000
+
+## Purpose
+Translate the asset and security posture assessment (1x00), threat landscape analysis (1x01), and vulnerability findings (1x02) into a documented, risk-prioritized security strategy.
+
+## Deliverables
+- [Task 1 — NIST CSF 2.0 Current Profile](1-nist_csf_mapping.md): Six functions, current maturity, supporting evidence, key gaps, and proposed six-month target maturity.
+
+## Evidence and governance approach
+- 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
+- 1x01 — Threat actors, attack vectors and mapped kill chains.
+- 1x02 — Vulnerability findings, triage, contextual risk and validation plans.
+
+Analyst-produced assessments are not proof of implemented controls. Proposed controls must be distinguished from operationally verified controls. Risk claims must be traceable to the three projects, and quantified recommendations must show their assumptions and calculations.
+
+## Constraints
+- Total recommended investment must not exceed **$120,000**.
+- Patient-care continuity and medical-device safety must be preserved.
+- All deliverables must use professional English, cite evidence, and end with a newline.
+
+## Status
+Task 1 evidence review completed against Projects 1x00, 1x01 and 1x02. Current maturity ratings remain evidence-based assessments; six-month targets are proposed and subject to implementation and validation. The maturity targets are proposals, not claims of completed implementations.
