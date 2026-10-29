@@ -20,6 +20,7 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 7 — Cost-Benefit Analysis](7-cost_benefit_analysis.md): Eight security controls assessed by annual cost, ALE reduction, net value, and budget fit.
 - [Task 8 — Budget Game](8-budget_allocation.md): Optimized $120,000 control allocation, deferred risks, opportunity costs, and alternative portfolio.
 - [Task 9 — CFO Challenge](9-cfo_challenge.md): Five evidence-based responses to financial objections, budget compromises, and a closing business case.
+- [Task 10 — Risk Register](10-risk_register.md): Ten prioritized MedDefense risks with scoring, ALE, ownership, treatment, residual risk, KRIs, review dates, and governance procedures.
 
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
