@@ -1,9 +1,9 @@
 # Task 5 — The Risk Equation
 
-**Organization:** MedDefense Health Systems  
-**Project:** 1x03 — Defense Blueprint  
-**Deliverable:** `5-risk_equation.md`  
-**Assessment date:** 29 October 2026  
+- **Organization:** MedDefense Health Systems
+- **Project:** 1x03 — Defense Blueprint
+- **Deliverable:** `5-risk_equation.md`
+- **Assessment date:** 29 October 2026
 **Status:** Scenario-based quantitative risk estimates; not audited financial forecasts.
 
 ## Methodology
@@ -20,8 +20,8 @@ The scenario values are planning estimates. They must not be treated as verified
 
 ## Scenario 1 — Ransomware on the Billing Server
 
-**Asset:** `billing-srv-01`  
-**Threat:** Ransomware causing prolonged billing disruption.  
+- **Asset:** `billing-srv-01`
+- **Threat:** Ransomware causing prolonged billing disruption.
 **Threat evidence:** Findings 001 and 002 provide plausible entry and privilege-escalation paths. The scenario is related to KC1-style ransomware activity, although the billing server is not an explicitly documented KC1 step.
 
 ### Input Data
@@ -95,8 +95,8 @@ The assumed fine is also conditional.
 
 ## Scenario 2 — Patient Data Breach via EHR
 
-**Asset:** EHR application, EHR database and protected patient records.  
-**Threat:** Unauthorized disclosure or exfiltration of patient information.  
+- **Asset:** EHR application, EHR database and protected patient records.
+- **Threat:** Unauthorized disclosure or exfiltration of patient information.
 **Threat evidence:** Finding 003 (broad PostgreSQL access), Finding 031 (exposed Tomcat AJP requiring CVE verification), GAP-017 and KC5 (vendor-channel compromise leading to EHR access).
 
 ### Input Data
@@ -176,8 +176,8 @@ ALE = $8,250,000 / 3 = $2,750,000/year.
 
 ## Scenario 3 — Negligent Insider Disclosure
 
-**Asset:** Patient data accessible through approximately 280 clinical workstations.  
-**Threat:** Employee or contractor negligence resulting in unauthorized disclosure.  
+- **Asset:** Patient data accessible through approximately 280 clinical workstations.
+- **Threat:** Employee or contractor negligence resulting in unauthorized disclosure.
 **Threat evidence:** GAP-017 (bulk patient-record export controls), weaknesses in security awareness and individual accountability.
 
 ### Input Data
@@ -245,8 +245,8 @@ At an ARO of 0.5, ALE would fall to $60,000/year.
 
 ## Scenario 4 — BD Alaris Infusion-Pump Compromise
 
-**Asset:** Seven BD Alaris infusion pumps.  
-**Threat:** Unauthorized management access, disruption or manipulation affecting clinical care.  
+- **Asset:** Seven BD Alaris infusion pumps.
+- **Threat:** Unauthorized management access, disruption or manipulation affecting clinical care.
 **Threat evidence:** Finding 010 and KC4.
 
 The reported default management credentials warrant remediation. However, applicability of the specific firmware CVE must be verified with BD; the scanner's version-based claim is contested.
@@ -369,8 +369,8 @@ This sum is conditional. If an event belongs to both categories, overlapping los
 
 ## Scenario 5 — FortiGate VPN to Full Network Compromise
 
-**Asset:** FortiGate VPN, Active Directory, EHR, billing infrastructure and connected systems.  
-**Threat:** External attacker gains VPN access and progresses to a compound ransomware/data-theft campaign.  
+- **Asset:** FortiGate VPN, Active Directory, EHR, billing infrastructure and connected systems.
+- **Threat:** External attacker gains VPN access and progresses to a compound ransomware/data-theft campaign.
 **Threat evidence:** KC1 (VPN → AD → ransomware), broad internal trust boundaries, and EHR/billing exposures.
 
 No specific FortiGate CVE is assumed confirmed without firmware and configuration evidence.
