@@ -121,6 +121,9 @@ The column above is a **scenario-specific scorekeeping exercise**. R2 already co
 
 ## Part 3 — A Lower-Cost Alternative Allocation
 
+**Explicit alternative comparison:** To compare the two allocations, the alternative offers a lower cost of $76,000/year versus $97,000/year for the primary portfolio, saving $21,000/year. However, modeled annual risk reduction decreases from $785,000 to $740,000, a $45,000 reduction in benefit. The alternative also defers immutable offsite backups, leaving recovery risks less effectively addressed. The portfolios are therefore not equivalent.
+
+
 **Alternative B: Fund C2 + C1 + C3 + C6; postpone C4 offsite immutable replication subject to demonstrably acceptable interim backup protections.**
 
 | Allocation comparison | **Primary A** (C2+C1+C3+C4+C6) | **Alternative B** (C2+C1+C3+C6) |
