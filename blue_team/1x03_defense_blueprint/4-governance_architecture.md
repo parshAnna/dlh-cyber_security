@@ -18,7 +18,7 @@ MedDefense has an unfilled CISO position, disputed operational ownership between
 
 **Legend:** **R** = Responsible (performs/coordinates the work); **A** = Accountable (one final owner of the decision or outcome); **C** = Consulted (input required before decision/change); **I** = Informed (receives outcome and relevant reporting). One **A** appears in each row; more than one **R** is permitted where delivery is joint. RACI **does not** replace a contractual obligation or legally mandated clinical/privacy approval.
 
-| Security activity | CEO | Deputy CISO (James Chen) | IT Director (Sarah Park) | Department Heads | Security Analyst (You) |
+| Security activity | CEO | Deputy CISO (James Chen) | IT Director (Sarah Park) | Dept Heads | Security Analyst (You) |
 |---|:---:|:---:|:---:|:---:|:---:|
 | **Security budget approval** | **A** | **R** | C | C | I |
 | **Vulnerability remediation** | I | C | **A** | C | **R** |
