@@ -25,6 +25,7 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 12 — Acceptable Use Policy](12-acceptable_use_policy.md): Hospital-specific acceptable use, prohibited activities, USB/BYOD restrictions, MFA, data handling, monitoring, enforcement, and employee acknowledgment.
 - [Task 13 — Quick Wins](13-quick_wins.md): Five low-cost security improvements executable within 14 days, with risk mappings, owners, implementation steps, timelines, and verification evidence.
 - [Task 14 — Segmentation Architecture](14-segmentation_architecture.md): Proposed VLAN architecture, interzone traffic policies, ten critical firewall rules, kill-chain disruption analysis, deployment steps, and clinical safety verification.
+- [Task 15 — Red Team Your Blueprint](15-red_team_blueprint.md): BlackReef adversarial assessment, alternative attack path, remaining insider threats, overall residual risk, and next-year security investment priority.
 
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
