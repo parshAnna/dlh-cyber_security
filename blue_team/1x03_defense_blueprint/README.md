@@ -15,6 +15,7 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 2 — CIS Controls Audit](2-cis_controls_audit.md): Assessment of all 18 CIS Controls, maturity scorecard, and five prioritized controls.
 - [Task 3 — Gap-to-Framework Bridge](3-gap_framework_bridge.md): Eight prioritized gaps mapped to vulnerabilities, threat kill chains, NIST CSF functions, CIS Controls, and recommended actions.
 - [Task 4 — Governance Architecture](4-governance_architecture.md): RACI matrix, data governance roles, and CISO/vCISO recommendation.
+- [Task 5 — Risk Equation](5-risk_equation.md): Five quantitative risk scenarios with AV, EF, SLE, ARO, ALE, confidence, and sensitivity analysis.
 
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
