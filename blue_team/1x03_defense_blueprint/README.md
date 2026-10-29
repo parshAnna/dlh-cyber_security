@@ -21,6 +21,7 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 8 — Budget Game](8-budget_allocation.md): Optimized $120,000 control allocation, deferred risks, opportunity costs, and alternative portfolio.
 - [Task 9 — CFO Challenge](9-cfo_challenge.md): Five evidence-based responses to financial objections, budget compromises, and a closing business case.
 - [Task 10 — Risk Register](10-risk_register.md): Ten prioritized MedDefense risks with scoring, ALE, ownership, treatment, residual risk, KRIs, review dates, and governance procedures.
+- [Task 11 — Control Selection](11-control_selection.md): Nineteen control selections across ten MedDefense risks, CIS Safeguards, NIST CSF mappings, costs, expected risk reduction, and control dependencies.
 
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
