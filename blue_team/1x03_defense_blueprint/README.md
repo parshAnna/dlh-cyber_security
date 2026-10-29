@@ -9,6 +9,7 @@
 Translate the asset and security posture assessment (1x00), threat landscape analysis (1x01), and vulnerability findings (1x02) into a documented, risk-prioritized security strategy.
 
 ## Deliverables
+- [Task 0 — Framework Landscape](0-framework_landscape.md): Comparison of NIST CSF 2.0, CIS Controls v8 and ISO/IEC 27001:2022, with a MedDefense framework recommendation.
 - [Task 1 — NIST CSF 2.0 Current Profile](1-nist_csf_mapping.md): Six functions, current maturity, supporting evidence, key gaps, and proposed six-month target maturity.
 
 ## Evidence and governance approach
@@ -24,4 +25,4 @@ Analyst-produced assessments are not proof of implemented controls. Proposed con
 - All deliverables must use professional English, cite evidence, and end with a newline.
 
 ## Status
-Task 1 evidence review completed against Projects 1x00, 1x01 and 1x02. Current maturity ratings remain evidence-based assessments; six-month targets are proposed and subject to implementation and validation. The maturity targets are proposals, not claims of completed implementations.
+Task 1 evidence review completed against Projects 1x00, 1x01 and 1x02. Current maturity ratings remain evidence-based assessments; six-month targets are proposed and subject to implementation and validation.
