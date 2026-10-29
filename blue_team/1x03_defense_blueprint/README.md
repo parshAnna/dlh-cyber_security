@@ -12,6 +12,8 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 0 — Framework Landscape](0-framework_landscape.md): Comparison of NIST CSF 2.0, CIS Controls v8 and ISO/IEC 27001:2022, with a MedDefense framework recommendation.
 - [Task 1 — NIST CSF 2.0 Current Profile](1-nist_csf_mapping.md): Six functions, current maturity, supporting evidence, key gaps, and proposed six-month target maturity.
 
+- [Task 2 — CIS Controls Audit](2-cis_controls_audit.md): Assessment of all 18 CIS Controls, maturity scorecard, and five prioritized controls.
+
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
 - 1x01 — Threat actors, attack vectors and mapped kill chains.
