@@ -13,6 +13,7 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 1 — NIST CSF 2.0 Current Profile](1-nist_csf_mapping.md): Six functions, current maturity, supporting evidence, key gaps, and proposed six-month target maturity.
 
 - [Task 2 — CIS Controls Audit](2-cis_controls_audit.md): Assessment of all 18 CIS Controls, maturity scorecard, and five prioritized controls.
+- [Task 3 — Gap-to-Framework Bridge](3-gap_framework_bridge.md): Eight prioritized gaps mapped to vulnerabilities, threat kill chains, NIST CSF functions, CIS Controls, and recommended actions.
 
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
