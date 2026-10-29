@@ -23,6 +23,7 @@ Translate the asset and security posture assessment (1x00), threat landscape ana
 - [Task 10 — Risk Register](10-risk_register.md): Ten prioritized MedDefense risks with scoring, ALE, ownership, treatment, residual risk, KRIs, review dates, and governance procedures.
 - [Task 11 — Control Selection](11-control_selection.md): Nineteen control selections across ten MedDefense risks, CIS Safeguards, NIST CSF mappings, costs, expected risk reduction, and control dependencies.
 - [Task 12 — Acceptable Use Policy](12-acceptable_use_policy.md): Hospital-specific acceptable use, prohibited activities, USB/BYOD restrictions, MFA, data handling, monitoring, enforcement, and employee acknowledgment.
+- [Task 13 — Quick Wins](13-quick_wins.md): Five low-cost security improvements executable within 14 days, with risk mappings, owners, implementation steps, timelines, and verification evidence.
 
 ## Evidence and governance approach
 - 1x00 — Asset Registry, Criticality Matrix, Control Inventory and Gap Analysis.
