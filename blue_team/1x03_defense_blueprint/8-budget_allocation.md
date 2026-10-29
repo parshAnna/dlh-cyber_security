@@ -14,6 +14,14 @@
 
 **Cash and authorization caveat:** Paying for the $18,000 segmentation equipment and $9,000 Westside appliance at purchase rather than annualizing each over three years increases first-year modeled cash from **$97,000 to $115,000**, leaving just **$5,000 of first-year cash headroom** before funding a vCISO, legal/privacy work, clinical safety, training, staffing, extra MFA licensing or other blueprint activities. The portfolio should be **selected for planning but released in stages**, with the C3 Wazuh commitment contingent on quotes, staffing and confirmation that the entire six-month program remains within its actual approved limit. **No claim of a finalized affordable whole-program budget is made.**
 
+### Budget Summary — Explicit Values
+
+- **Total spend:** $97,000 annualized (97000); $115,000 first-year modeled cash cost.
+- **Budget ceiling:** $120,000 (120000).
+- **Budget remaining:** $23,000 annualized; $5,000 first-year cash headroom.
+
+These figures cover the selected control portfolio, not an approved whole-program budget.
+
 ## Method: Decision Rules and Exact Budget Test
 
 1. **Reused inputs:** Use each control's annualized cost and *marginal* ARR from [Task 7](7-cost_benefit_analysis.md) unchanged. Do not substitute Task 6's bundled ARR for a single control.
