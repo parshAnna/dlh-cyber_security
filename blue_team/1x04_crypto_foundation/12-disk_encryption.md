@@ -1,10 +1,10 @@
 # MedDefense Health Systems — Task 12: The Disk Encryption Lab
 
-**Project:** 1x04 — Cryptographic Foundation  
-**Deliverables:** `12-luks_manager.sh`, `12-disk_encryption.md`  
-**Assessment date:** 5 November 2026  
-**Status:** **Laboratory PASS** — manual 500 MiB LUKS2 workflow and 128 MiB manager `create/open/close` workflow verified on Fedora on 5 November 2026. This is not a production NAS deployment or an on-host encryption performance benchmark.  
-**Audience:** James Chen (Deputy CISO), Sarah Park (IT Director), backup operations and DPO  
+**Project:** 1x04 — Cryptographic Foundation
+**Deliverables:** `12-luks_manager.sh`, `12-disk_encryption.md`
+**Assessment date:** 5 November 2026
+**Status:** **Laboratory PASS** — manual 500 MiB LUKS2 workflow and 128 MiB manager `create/open/close` workflow verified on Fedora on 5 November 2026. This is not a production NAS deployment or an on-host encryption performance benchmark.
+**Audience:** James Chen (Deputy CISO), Sarah Park (IT Director), backup operations and DPO
 **Source context:** 1x00 asset/information inventory; 1x01 flat-network attack paths; 1x02 exposure findings; 1x03 proposed immutable offsite backup control C4; 1x04 Task 1 measured cryptographic throughput.
 
 ## 1. Scope, safety and threat model
