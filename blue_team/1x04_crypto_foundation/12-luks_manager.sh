@@ -11,15 +11,15 @@ case "$mode" in
     [[ ! -e "$img" && ! -L "$img" ]] || { echo "Refusing to overwrite existing image" >&2; exit 1; }
     dd if=/dev/zero of="$img" bs=1M count="$size" conv=excl status=progress
     sudo cryptsetup luksFormat --type luks2 --verify-passphrase "$img"
-    sudo cryptsetup open "$img" "$name"
-    sudo mkfs.ext4 "/dev/mapper/$name" || { sudo cryptsetup close "$name"; exit 1; }
-    sudo cryptsetup close "$name"
+    sudo cryptsetup luksOpen "$img" "$name"
+    sudo mkfs.ext4 "/dev/mapper/$name" || { sudo cryptsetup luksClose "$name"; exit 1; }
+    sudo cryptsetup luksClose "$name"
     ;;
   open)
     [[ -f "$img" ]] || { echo "Image not found; run create first" >&2; exit 1; }
-    mkdir -p "$mnt"; sudo cryptsetup open "$img" "$name"
-    sudo mount -o nodev,nosuid,noexec "/dev/mapper/$name" "$mnt" || { sudo cryptsetup close "$name"; exit 1; }
+    mkdir -p "$mnt"; sudo cryptsetup luksOpen "$img" "$name"
+    sudo mount -o nodev,nosuid,noexec "/dev/mapper/$name" "$mnt" || { sudo cryptsetup luksClose "$name"; exit 1; }
     echo "Mounted encrypted filesystem: $mnt";;
-  close) sudo umount "$mnt" && sudo cryptsetup close "$name" ;;
+  close) sudo umount "$mnt" && sudo cryptsetup luksClose "$name" ;;
   *) echo "Usage: $0 {create SIZE_MiB|open|close}" >&2; exit 2 ;;
 esac
