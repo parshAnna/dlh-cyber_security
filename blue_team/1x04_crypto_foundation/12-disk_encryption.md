@@ -19,6 +19,8 @@ The exercise operates on a **regular file**, not a real disk or partition. `cryp
 
 ### 2.1 Create the image safely (do not overwrite existing data)
 
+**Assignment reference command (documentation only; do not rerun on an existing image):** `dd if=/dev/zero of=encrypted_volume.img bs=1M count=500`. The actual Fedora run used the guarded lab-path command below with `conv=excl` so an existing encrypted image cannot be silently overwritten.
+
 ```bash
 LAB="$HOME/.local/share/meddefense-crypto/luks_task12"
 IMG="$LAB/encrypted_volume.img"
