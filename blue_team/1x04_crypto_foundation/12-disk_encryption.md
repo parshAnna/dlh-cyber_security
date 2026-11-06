@@ -40,8 +40,20 @@ ls -lh "$IMG"
 
 ### 2.2 Initialize LUKS2; unlock; make ext4
 
-**Assignment syntax reference (documentation only; do not execute on an existing image):** `sudo cryptsetup luksOpen encrypted_volume.img secure_vol`; `sudo mount /dev/mapper/secure_vol /mnt/secure_vol`; `sudo umount /mnt/secure_vol`; `sudo cryptsetup luksClose secure_vol`; `strings encrypted_volume.img | head -50`. The actual Fedora lab uses the guarded `$IMG` and `$MNT` paths.
-**Assignment reference (documentation only; do not execute on an existing image):** `sudo cryptsetup luksFormat encrypted_volume.img`. The actual Fedora lab used explicit LUKS2 settings and the guarded `$IMG` path.
+**Assignment command concordance (documentation only — DO NOT re-run on the existing encrypted image):** The assignment uses relative file names, whereas the successful Fedora lab used protected absolute paths and overwrite guards. The following are **references, not a second execution transcript**:
+
+```text
+dd if=/dev/zero of=encrypted_volume.img bs=1M count=500
+sudo cryptsetup luksFormat encrypted_volume.img
+sudo cryptsetup luksOpen encrypted_volume.img secure_vol
+sudo mkfs.ext4 /dev/mapper/secure_vol
+sudo mount /dev/mapper/secure_vol /mnt/secure_vol
+sudo umount /mnt/secure_vol
+sudo cryptsetup luksClose secure_vol
+strings encrypted_volume.img | head -50
+```
+
+**Actual safe workflow:** use the `$IMG` and `$MNT` variables in the following commands, not these example relative paths. Never rerun `dd`, `luksFormat`, or `mkfs.ext4` against the existing populated image.
 
 ```bash
 sudo cryptsetup luksFormat --type luks2 --verify-passphrase "$IMG"
@@ -176,6 +188,16 @@ MD12_MANAGER_TEST_SYNTHETIC
 ## 5. Part 4 — NAS-01 backup encryption design
 
 ### 5.1 Recommended encryption layers and rationale
+
+**Encryption-layer selection for NAS-01:** the terms **full-disk encryption**, **volume-level encryption**, and **file-level encryption** refer to different coverage and key-management boundaries. MedDefense should choose based on the NAS appliance's supported features and the backup repository layout.
+
+| Encryption level | Coverage and operational trade-off | NAS-01 decision |
+|---|---|---|
+| **Full-disk encryption** | Protects an entire physical disk, possibly including operating-system data; can complicate unattended boot, appliance support and recovery and may be unnecessary for shared NAS disks. | Consider only if fully supported by the NAS platform, with separated recovery keys and tested boot/recovery. |
+| **Volume-level encryption** | Encrypts a dedicated filesystem or backup storage volume and all backup files placed inside it, with manageable access and restore boundaries. | **Preferred local at-rest layer:** LUKS2 full-volume encryption or a vendor-supported equivalent on dedicated backup storage. |
+| **File-level encryption** | Encrypts selected files or backup objects independently; adds portability and allows ciphertext to remain encrypted during cloud replication, but requires object-level key/nonce and metadata management. | **Additional client-side layer** for backup objects sent to the cloud; use authenticated encryption via a supported backup product. |
+
+**Decision and limitations:** volume-level encryption best fits the reported plaintext NAS-01 backup repository, while file-level encryption before replication protects a separate cloud replica. Neither full-disk nor volume-level encryption protects data from an adversary who already has authorized access to a mounted, decrypted filesystem. **Key storage** (key storage / key custody) must remain separate from the NAS; **key loss** without recovery escrow can make all backup data irrecoverable, and **cloud replica encryption** must remain in place with **MedDefense-owned decryption keys**.
 
 **Primary recommendation:** use **LUKS2 full-volume encryption** on dedicated NAS backup volumes or the underlying backup repository block device **where the NAS OS supports and properly manages it**. Encrypt **before data lands on persistent storage**, verify all backup datasets/snapshots are covered, and never encrypt a live filesystem without a tested backup and maintenance window. Volume-level encryption protects broad datasets with low operational complexity and preserves filesystem compatibility. For a hardware NAS or appliance that does not support LUKS2, use its **documented managed volume-encryption feature** with equivalent key-separation controls rather than assuming `cryptsetup` is installable.
 
