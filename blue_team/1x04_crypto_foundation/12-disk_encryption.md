@@ -39,6 +39,8 @@ ls -lh "$IMG"
 **Observed (20:55 CET):** `dd` returned `500+0 records in`, `500+0 records out`, `524288000 bytes (524 MB, 500 MiB) copied, 0.443719 s, 1.2 GB/s`; `ls -lh` showed `-rw-------` and `500M` for `encrypted_volume.img`. Local `/home` had 33 GiB available before the test. The 1.2 GB/s reading is buffered file creation, **not** LUKS or NAS encryption throughput. The safety check prevents overwriting an existing filename.
 
 ### 2.2 Initialize LUKS2; unlock; make ext4
+
+**Assignment syntax reference (documentation only; do not execute on an existing image):** `sudo cryptsetup luksOpen encrypted_volume.img secure_vol`; `sudo mount /dev/mapper/secure_vol /mnt/secure_vol`; `sudo umount /mnt/secure_vol`; `sudo cryptsetup luksClose secure_vol`; `strings encrypted_volume.img | head -50`. The actual Fedora lab uses the guarded `$IMG` and `$MNT` paths.
 **Assignment reference (documentation only; do not execute on an existing image):** `sudo cryptsetup luksFormat encrypted_volume.img`. The actual Fedora lab used explicit LUKS2 settings and the guarded `$IMG` path.
 
 ```bash
