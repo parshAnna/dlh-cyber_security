@@ -220,6 +220,8 @@ Task 1 on the Fedora lab laptop measured **AES-256-CBC at 774.56 MB/s** and **AE
 
 ### 5.3 Key custody — never store the only unlock key on NAS-01
 
+**Explicit key placement requirement — NOT on the NAS itself:** MedDefense must keep LUKS unlock credentials, recovery keys and escrow in its separately secured, organization-controlled KMS/HSM or offline vault; no reusable plaintext unlock key should be stored on NAS-01. If the encryption key is lost and all independently escrowed recovery methods are also unavailable, the encrypted NAS backup cannot be restored. The cloud replica must also remain encrypted with client-side, authenticated backup-object encryption, using decryption keys owned and controlled by MedDefense rather than relying solely on provider-held keys.
+
 - Generate/maintain volume keys using supported LUKS2 keyslots and a centrally managed key-encryption process; store unlock credentials, recovery secrets and any key escrow in an **organization-controlled KMS/HSM or segregated secret vault**, accessible by restricted backup administrators with MFA and audit logs.
 - Do **not** keep the only recovery key or an unattended plaintext auto-unlock key **on NAS-01**: theft or compromise of the storage device would then expose the very secret required to decrypt it.
 - Establish **two-person** authorized break-glass recovery, backup administrator separation of duties, key versioning, rotation/revocation runbooks, and documented access reviews. A security-approved hardware-backed unlock strategy is preferable to automatically storing a recoverable passphrase on the disk.
