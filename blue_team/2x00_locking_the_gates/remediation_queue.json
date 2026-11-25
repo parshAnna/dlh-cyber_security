@@ -1,0 +1,348 @@
+{
+  "assessed_asset": "billing-srv-01",
+  "sorted_by": "priority_score descending",
+  "remediation_actions": [
+    {
+      "control_id": "MD-CIS-03",
+      "title": "Enforce PAM password quality and lockout",
+      "cis_section": "4 Access Authentication and Authorization",
+      "severity": "critical",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "weak authentication,credential stuffing",
+      "implementation_task": "PAM_POLICY",
+      "verification_method": "Inspect pam-auth-update profiles and test pam_pwquality and pam_faillock where supported",
+      "justification": "Weak passwords and unrestricted guesses expose administrative access",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "DEB-0880",
+          "message": "Install fail2ban to automatically ban hosts that commit multiple authentication errors."
+        },
+        {
+          "severity": "suggestion",
+          "test_id": "AUTH-9230",
+          "message": "Configure password hashing rounds in /etc/login.defs"
+        },
+        {
+          "severity": "suggestion",
+          "test_id": "AUTH-9286",
+          "message": "Configure minimum password age in /etc/login.defs"
+        },
+        {
+          "severity": "suggestion",
+          "test_id": "AUTH-9286",
+          "message": "Configure maximum password age in /etc/login.defs"
+        }
+      ],
+      "remediation_script": "5-pam_policy.sh",
+      "remediation_script_planned": true,
+      "priority_score": 90,
+      "operational_risk": "Weak passwords and unrestricted guesses expose administrative access",
+      "expected_validation_check": "Inspect pam-auth-update profiles and test pam_pwquality and pam_faillock where supported",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-05",
+      "title": "Enable security audit events and forwarding",
+      "cis_section": "5 Logging and Auditing",
+      "severity": "critical",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "missing audit visibility,incident response gaps",
+      "implementation_task": "AUDIT_ENABLE",
+      "verification_method": "systemctl is-active auditd and auditctl -l plus remote receipt test",
+      "justification": "Reliable security events are necessary to reconstruct lateral movement",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "LOGG-2154",
+          "message": "Enable logging to an external logging host for archiving purposes and additional protection"
+        },
+        {
+          "severity": "suggestion",
+          "test_id": "ACCT-9630",
+          "message": "Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules"
+        }
+      ],
+      "remediation_script": "10-audit_logging.sh",
+      "remediation_script_planned": true,
+      "priority_score": 88,
+      "operational_risk": "Reliable security events are necessary to reconstruct lateral movement",
+      "expected_validation_check": "systemctl is-active auditd and auditctl -l plus remote receipt test",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-01",
+      "title": "Disable direct SSH root login",
+      "cis_section": "4 Access Authentication and Authorization",
+      "severity": "critical",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "SSH lateral movement,privilege escalation",
+      "implementation_task": "SSH_HARDEN",
+      "verification_method": "sshd -T confirms permitrootlogin no",
+      "justification": "Direct root access removes account attribution and enables privileged lateral movement",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "SSH-7408",
+          "message": "Consider hardening SSH configuration"
+        }
+      ],
+      "remediation_script": "4-ssh_hardening.sh",
+      "remediation_script_planned": true,
+      "priority_score": 85,
+      "operational_risk": "Direct root access removes account attribution and enables privileged lateral movement",
+      "expected_validation_check": "sshd -T confirms permitrootlogin no",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-02",
+      "title": "Require key-based SSH after access validation",
+      "cis_section": "4 Access Authentication and Authorization",
+      "severity": "critical",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "weak authentication,SSH lateral movement",
+      "implementation_task": "SSH_HARDEN",
+      "verification_method": "Verified key login succeeds and sshd -T shows passwordauthentication no",
+      "justification": "Passwords are reusable or guessable; lockout prevention requires testing keys first",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "SSH-7408",
+          "message": "Consider hardening SSH configuration"
+        }
+      ],
+      "remediation_script": "4-ssh_hardening.sh",
+      "remediation_script_planned": true,
+      "priority_score": 85,
+      "operational_risk": "Passwords are reusable or guessable; lockout prevention requires testing keys first",
+      "expected_validation_check": "Verified key login succeeds and sshd -T shows passwordauthentication no",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-10",
+      "title": "Enforce host firewall least privilege",
+      "cis_section": "3 Network Configuration",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "exposed database services,lateral movement",
+      "implementation_task": "FIREWALL_POLICY",
+      "verification_method": "nft list ruleset or ufw status and test permitted source-to-port reachability",
+      "justification": "Allow only approved management and application flows per server role",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "warning",
+          "test_id": "FIRE-4512",
+          "message": "iptables module(s) loaded, but no rules active"
+        },
+        {
+          "severity": "suggestion",
+          "test_id": "FIRE-4513",
+          "message": "Check iptables rules to see which rules are currently not used"
+        }
+      ],
+      "remediation_script": "8-firewall_policy.sh",
+      "remediation_script_planned": true,
+      "priority_score": 80,
+      "operational_risk": "Allow only approved management and application flows per server role",
+      "expected_validation_check": "nft list ruleset or ufw status and test permitted source-to-port reachability",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-12",
+      "title": "Audit privilege changes and authentication",
+      "cis_section": "5 Logging and Auditing",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "missing audit visibility,privilege abuse",
+      "implementation_task": "AUDIT_ENABLE",
+      "verification_method": "auditctl -l or augenrules --check and controlled sudo event search",
+      "justification": "Track sensitive privilege and identity changes for forensic attribution",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "LOGG-2154",
+          "message": "Enable logging to an external logging host for archiving purposes and additional protection"
+        },
+        {
+          "severity": "suggestion",
+          "test_id": "ACCT-9630",
+          "message": "Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules"
+        }
+      ],
+      "remediation_script": "10-audit_logging.sh",
+      "remediation_script_planned": true,
+      "priority_score": 68,
+      "operational_risk": "Track sensitive privilege and identity changes for forensic attribution",
+      "expected_validation_check": "auditctl -l or augenrules --check and controlled sudo event search",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-06",
+      "title": "Minimize SSH authentication attempts and forwarding",
+      "cis_section": "4 Access Authentication and Authorization",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "SSH lateral movement,brute force",
+      "implementation_task": "SSH_HARDEN",
+      "verification_method": "sshd -T checks maxauthtries and x11forwarding",
+      "justification": "Limit guessing opportunities and unnecessary SSH channels",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "SSH-7408",
+          "message": "Consider hardening SSH configuration"
+        }
+      ],
+      "remediation_script": "4-ssh_hardening.sh",
+      "remediation_script_planned": true,
+      "priority_score": 65,
+      "operational_risk": "Limit guessing opportunities and unnecessary SSH channels",
+      "expected_validation_check": "sshd -T checks maxauthtries and x11forwarding",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-07",
+      "title": "Disable unused network-facing services",
+      "cis_section": "2 Services",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "unnecessary services,remote exploitation",
+      "implementation_task": "SERVICE_MIN",
+      "verification_method": "Compare systemctl enabled units and ss listeners against approved service inventory",
+      "justification": "Reducing exposed daemons lowers reachable attack surface",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "BOOT-5264",
+          "message": "Consider hardening system services"
+        }
+      ],
+      "remediation_script": "6-service_minimization.sh",
+      "remediation_script_planned": true,
+      "priority_score": 65,
+      "operational_risk": "Reducing exposed daemons lowers reachable attack surface",
+      "expected_validation_check": "Compare systemctl enabled units and ss listeners against approved service inventory",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-08",
+      "title": "Harden IPv4 redirects and source routing",
+      "cis_section": "3 Network Configuration",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "kernel hardening gaps,traffic interception",
+      "implementation_task": "SYSCTL_HARDEN",
+      "verification_method": "sysctl -a checks accept_redirects and accept_source_route across interfaces",
+      "justification": "Reject spoofed route controls that can facilitate interception",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "KRNL-6000",
+          "message": "One or more sysctl values differ from the scan profile and could be tweaked"
+        }
+      ],
+      "remediation_script": "7-sysctl_hardening.sh",
+      "remediation_script_planned": true,
+      "priority_score": 65,
+      "operational_risk": "Reject spoofed route controls that can facilitate interception",
+      "expected_validation_check": "sysctl -a checks accept_redirects and accept_source_route across interfaces",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-09",
+      "title": "Enable kernel exploit mitigations",
+      "cis_section": "3 Network Configuration",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "kernel hardening gaps,privilege escalation",
+      "implementation_task": "SYSCTL_HARDEN",
+      "verification_method": "sysctl checks kernel.randomize_va_space and kernel.dmesg_restrict",
+      "justification": "Kernel safeguards reduce useful information leaks and exploit reliability",
+      "status": "partially_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "KRNL-6000",
+          "message": "One or more sysctl values differ from the scan profile and could be tweaked"
+        }
+      ],
+      "remediation_script": "7-sysctl_hardening.sh",
+      "remediation_script_planned": true,
+      "priority_score": 65,
+      "operational_risk": "Kernel safeguards reduce useful information leaks and exploit reliability",
+      "expected_validation_check": "sysctl checks kernel.randomize_va_space and kernel.dmesg_restrict",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-11",
+      "title": "Protect account and credential files",
+      "cis_section": "1 Initial Setup",
+      "severity": "high",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "weak authentication,credential disclosure",
+      "implementation_task": "FILE_PERMS",
+      "verification_method": "stat -c %a:%U:%G for /etc/shadow /etc/passwd and SSH files",
+      "justification": "Loose credential-file permissions expose account data to local users",
+      "status": "non_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "FILE-7524",
+          "message": "Consider restricting file permissions"
+        }
+      ],
+      "remediation_script": "9-file_permissions.sh",
+      "remediation_script_planned": true,
+      "priority_score": 65,
+      "operational_risk": "Loose credential-file permissions expose account data to local users",
+      "expected_validation_check": "stat -c %a:%U:%G for /etc/shadow /etc/passwd and SSH files",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    },
+    {
+      "control_id": "MD-CIS-14",
+      "title": "Set persistent log retention and rotation",
+      "cis_section": "5 Logging and Auditing",
+      "severity": "medium",
+      "asset_scope": "billing-srv-01,web-srv-01,log-srv-01",
+      "threat_mapping": "insufficient log retention,incident evidence loss",
+      "implementation_task": "LOG_RETENTION",
+      "verification_method": "Inspect journald Storage and SystemMaxUse plus logrotate policy and retention test",
+      "justification": "Logs must survive reboot and remain available for investigations",
+      "status": "partially_compliant",
+      "affected_asset": "billing-srv-01",
+      "matching_lynis_findings": [
+        {
+          "severity": "suggestion",
+          "test_id": "LOGG-2154",
+          "message": "Enable logging to an external logging host for archiving purposes and additional protection"
+        }
+      ],
+      "remediation_script": "11-log_retention.sh",
+      "remediation_script_planned": true,
+      "priority_score": 45,
+      "operational_risk": "Logs must survive reboot and remain available for investigations",
+      "expected_validation_check": "Inspect journald Storage and SystemMaxUse plus logrotate policy and retention test",
+      "assessment_basis": "Lynis finding: provisional control-level inference; validate exact setting"
+    }
+  ]
+}
