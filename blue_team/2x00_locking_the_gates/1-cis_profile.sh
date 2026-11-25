@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 python3 -c 'import sys,json,collections
 k="control_id|title|cis_section|severity|asset_scope|threat_mapping|implementation_task|verification_method|justification".split("|")
