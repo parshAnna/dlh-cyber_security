@@ -1,0 +1,22 @@
+#include <tunables/global>
+
+/usr/sbin/apache2 {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/apache2-common>
+  capability net_bind_service,
+  capability setuid,
+  capability setgid,
+  /usr/sbin/apache2 mr,
+  /etc/apache2/** r,
+  /etc/mime.types r,
+  /etc/ssl/openssl.cnf r,
+  /tmp/.ZendSem.* rwk,
+  /etc/php/** r,
+  /usr/lib/apache2/modules/** mr,
+  /usr/lib/php/** mr,
+  /var/www/html/** r,
+  /var/www/html/uploads/** rw,
+  /var/log/apache2/** rw,
+  /run/apache2/** rw,
+}
